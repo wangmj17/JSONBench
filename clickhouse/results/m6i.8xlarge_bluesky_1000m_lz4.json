@@ -1,5 +1,5 @@
 {
-  "system": "ClickHouse",
+  "system": "ClickHouse (lz4)",
   "version": "25.1.1.2571",
   "os": "Ubuntu 24.04",
   "date": "2025-01-13",
