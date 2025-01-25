@@ -1,12 +1,34 @@
-# ClickJSONBench: A Benchmark for native JSON support on Analytical Databases
+# JSONBench: A Benchmark For Data Analytics on JSON
 
-## Overview 
+## Overview
 
-This benchmark compares the native support JSON of most popular analytical databases. 
+This benchmark compares the native support JSON of most popular analytical databases.
 
 The dataset is a collection of files containing JSON objects delimited by newline (ndjson). This was obtained using Jetstream to collect Bluesky events. The dataset contains 1 billion Bluesky events and is currently hosted on a public S3 bucket. 
 
-## Pre-requisites 
+## Principles
+
+The main principles of this benchmark are:
+
+### Reproducibility
+
+You can easily reproduce every test (although for some systems it may take from several hours to days) in a semi-automated way. The test setup is documented and uses inexpensive cloud VMs. The test process is documented in the form of a shell script, covering the installation of every system, loading of the data, running the workload, and collecting the result numbers. The dataset is published and made available for download in multiple formats.
+
+### Realism
+
+The dataset is represented by a real-world production data. The realistic data distributions allow for correctly accounting for compression, indices, codecs, custom data structures, etc., which is not possible with most of the random dataset generators. It can test various aspects of hardware as well: some queries require high storage throughput; some queries benefit from a large number of CPU cores, and some benefit from single-core speed; some queries benefit from high main memory bandwidth.
+
+The benchmark focuses on data analytics queries rather than search or single-value retrieval or mutating operations.
+
+### Fairness
+
+Best efforts should be taken to understand the details of every tested system for fair comparison. It is allowed to apply various indexing methods whenever appropriate. 
+
+## Goals
+
+The goal is to advance the possibilities of data analytics on semistructured data. This benchmark is influenced by **[ClickBench](https://github.com/ClickHouse/ClickBench)** which was published in 2022 and has helped to improve the performance, capabilities, and stability of many analytic databases. We would like to see comparable influence from **JSONBench**.
+
+## Pre-requisites
 
 To run the benchmark will 1 billion rows, it is important to provision a machine with sufficient resources and disk space. The full compressed dataset takes 125 Gb of disk space, uncompressed it takes up to 425 Gb. 
 
@@ -15,7 +37,7 @@ For reference, the initial benchmarks have been run on the following machines:
 - Disk: > 10Tb gp3
 - OS: Ubuntu 24.04
 
-If you're interested in running the full benchmark, be aware that it will takes several hours, or days depending on the database. 
+If you're interested in running the full benchmark, be aware that it will take several hours, or days depending on the database.
 
 ## Usage 
 
@@ -51,7 +73,7 @@ Usage: `main.sh <DATA_DIRECTORY> <SUCCESS_LOG> <ERROR_LOG> <OUTPUT_PREFIX>`
 - `<ERROR_LOG>`: The file to log errors. Default is `error.log`.
 - `<OUTPUT_PREFIX>`: The prefix for output files. Default is `_m6i.8xlarge`.
 
-By example for clickhouse:
+For example, for clickhouse:
 
 ```
 cd clickhouse
@@ -84,10 +106,25 @@ Below is a description of the files that might be generated as a result of the b
 - `.results_runtime`: Contains the runtime results of the benchmark.
 - `.results_memory_usage`: Contains the memory usage results of the benchmark.
 
-The last step of our benchmark is manual (PRs to automate this last step are welcome). We manually retrieve the information from the outputted files into the final result JSON documents which we add into the `results` subdirectory within the benchmark candidate's ClickJSONBench subdirectory. 
+The last step of our benchmark is manual (PRs to automate this last step are welcome). We manually retrieve the information from the outputted files into the final result JSON documents which we add into the `results` subdirectory within the benchmark candidate's subdirectory. 
 
 For example, this is the [results](./clickhouse/results) directory for our ClickHouse benchmark results.
 
 ## Add a new database
 
-Contribution of new database that natively supports JSON to this benchmark are welcome. 
+We highly welcome additions of new entries in the benchmark! Please don't hesitate to contribute one.
+You don't have to be affiliated with the database engine to contribute the benchmark.
+
+While the main benchmark uses a specific machine configuration for reproducibility, we will be interested to receive results for cloud services and data lakes for reference comparisons.
+
+- [x] ClickHouse
+- [x] Elasticsearch
+- [x] MongoDB
+- [x] DuckDB
+- [x] PostgreSQL
+- [ ] Quickwit
+- [ ] Meilisearch
+- [ ] Sneller
+- [ ] Snowflake
+- [ ] Manticore Search
+- [ ] SingleStore
