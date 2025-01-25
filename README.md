@@ -18,15 +18,19 @@ You can easily reproduce every test (although for some systems it may take from 
 
 The dataset is represented by a real-world production data. The realistic data distributions allow for correctly accounting for compression, indices, codecs, custom data structures, etc., which is not possible with most of the random dataset generators. It can test various aspects of hardware as well: some queries require high storage throughput; some queries benefit from a large number of CPU cores, and some benefit from single-core speed; some queries benefit from high main memory bandwidth.
 
-The benchmark focuses on data analytics queries rather than search or single-value retrieval or mutating operations.
-
 ### Fairness
 
-Best efforts should be taken to understand the details of every tested system for fair comparison. It is allowed to apply various indexing methods whenever appropriate. 
+Best efforts should be taken to understand the details of every tested system for fair comparison. It is allowed to apply various indexing methods whenever appropriate.
+
+It is not allowed to use query results caching or flatten JSON at the insertion time.  
 
 ## Goals
 
-The goal is to advance the possibilities of data analytics on semistructured data. This benchmark is influenced by **[ClickBench](https://github.com/ClickHouse/ClickBench)** which was published in 2022 and has helped to improve the performance, capabilities, and stability of many analytic databases. We would like to see comparable influence from **JSONBench**.
+The goal is to advance the possibilities of data analytics on semistructured data. This benchmark is influenced by **[ClickBench](https://github.com/ClickHouse/ClickBench)** which was published in 2022 and has helped in improving performance, capabilities, and stability of many analytic databases. We would like to see comparable influence from **JSONBench**.
+
+## Limitations
+
+The benchmark focuses on data analytics queries rather than search or single-value retrieval or mutating operations.
 
 ## Pre-requisites
 
