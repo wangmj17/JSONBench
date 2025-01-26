@@ -34,7 +34,7 @@ The benchmark focuses on data analytics queries rather than search or single-val
 
 ## Pre-requisites
 
-To run the benchmark will 1 billion rows, it is important to provision a machine with sufficient resources and disk space. The full compressed dataset takes 125 Gb of disk space, uncompressed it takes up to 425 Gb. 
+To run the benchmark with 1 billion rows, it is important to provision a machine with sufficient resources and disk space. The full compressed dataset takes 125 Gb of disk space, uncompressed it takes up to 425 Gb. 
 
 For reference, the initial benchmarks have been run on the following machines: 
 - AWS EC2 instance: m6i.8xlarge
