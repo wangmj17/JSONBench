@@ -32,6 +32,8 @@ The goal is to advance the possibilities of data analytics on semistructured dat
 
 The benchmark focuses on data analytics queries rather than search, single-value retrieval, or mutating operations.
 
+The benchmark does not record data loading times. While it was one of the initial goals, many systems require a finicky multi-step data preparation process, which makes them difficult to compare.
+
 ## Pre-requisites
 
 To run the benchmark with 1 billion rows, it is important to provision a machine with sufficient resources and disk space. The full compressed dataset takes 125 Gb of disk space, uncompressed it takes up to 425 Gb. 
