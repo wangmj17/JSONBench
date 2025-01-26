@@ -132,3 +132,7 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [ ] Snowflake
 - [ ] Manticore Search
 - [ ] SingleStore
+
+## Similar projects
+
+[The fastest command-line tools for querying large JSON datasets](https://colab.research.google.com/github/dcmoura/spyql/blob/master/notebooks/json_benchmark.ipynb)
