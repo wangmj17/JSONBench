@@ -28,6 +28,7 @@
             --summary-every-other-row-color: #F8F8F8;
             --highlight-color: #EEE;
             --bar-color: #FFCB80;
+            --fake-bar-color: #CCC;
 
             --tooltip-text-color: white;
             --tooltip-background-color: black;
@@ -54,6 +55,7 @@
             --summary-every-other-row-color: #042e41;
             --highlight-color: #064663;
             --bar-color: #088;
+            --fake-bar-color: #666;
 
             --tooltip-text-color: white;
             --tooltip-background-color: #444;
@@ -154,6 +156,12 @@
         .summary-bar {
             height: 1rem;
             background: var(--bar-color);
+            border-radius: 0 0.2rem 0.2rem 0;
+        }
+
+        .summary-bar-fake {
+            height: 1rem;
+            background: var(--fake-bar-color);
             border-radius: 0 0.2rem 0.2rem 0;
         }
 
@@ -291,22 +299,22 @@ const queries = [
 ];
 
 const data = [
-{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","data_compression":"gz","total_size":134117979655,"total_size_readable":"134.12 GB","source":"_files_gz/results/_files_bluesky_gz_1000m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","data_compression":"gz","total_size":13372936569,"total_size_readable":"13.37 GB","source":"_files_gz/results/_files_bluesky_gz_100m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":10000000,"dataset_size_readable":"10m","data_compression":"gz","total_size":1354902507,"total_size_readable":"1.35 GB","source":"_files_gz/results/_files_bluesky_gz_10m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000,"dataset_size_readable":"1m","data_compression":"gz","total_size":135176827,"total_size_readable":"135.17 MB","source":"_files_gz/results/_files_bluesky_gz_1m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","data_compression":"none","total_size":482108809691,"total_size_readable":"482.11 GB","source":"_files_json/results/_files_bluesky_json_1000m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","data_compression":"none","total_size":47813179260,"total_size_readable":"47.81 GB","source":"_files_json/results/_files_bluesky_json_100m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":10000000,"dataset_size_readable":"10m","data_compression":"none","total_size":4858741288,"total_size_readable":"4.86 GB","source":"_files_json/results/_files_bluesky_json_10m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000,"dataset_size_readable":"1m","data_compression":"none","total_size":480778277,"total_size_readable":"480.78 MB","source":"_files_json/results/_files_bluesky_json_1m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","data_compression":"lz4","total_size":206562787263,"total_size_readable":"206.56 GB","source":"_files_lz4/results/_files_bluesky_lz4_1000m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","data_compression":"lz4","total_size":20591959778,"total_size_readable":"20.59 GB","source":"_files_lz4/results/_files_bluesky_lz4_100m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":10000000,"dataset_size_readable":"10m","data_compression":"lz4","total_size":2084888024,"total_size_readable":"2.08 GB","source":"_files_lz4/results/_files_bluesky_lz4_10m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000,"dataset_size_readable":"1m","data_compression":"lz4","total_size":208385826,"total_size_readable":"208.39 MB","source":"_files_lz4/results/_files_bluesky_lz4_1m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","data_compression":"zstd(1)","total_size":123797963671,"total_size_readable":"123.80 GB","source":"_files_zstd/results/_files_bluesky_zstd_1000m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","data_compression":"zstd(1)","total_size":12245368182,"total_size_readable":"12.25 GB","source":"_files_zstd/results/_files_bluesky_zstd_100m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":10000000,"dataset_size_readable":"10m","data_compression":"zstd(1)","total_size":1269817486,"total_size_readable":"1.27 GB","source":"_files_zstd/results/_files_bluesky_zstd_10m.json"}
-,{"system":"_files_json","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000,"dataset_size_readable":"1m","data_compression":"zstd(1)","total_size":126734406,"total_size_readable":"126.73 MB","source":"_files_zstd/results/_files_bluesky_zstd_1m.json"}
+{"system":"data.json.gz","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","data_compression":"gz","total_size":134117979655,"total_size_readable":"134.12 GB","source":"_files_gz/results/_files_bluesky_gz_1000m.json"}
+,{"system":"data.json.gz","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","data_compression":"gz","total_size":13372936569,"total_size_readable":"13.37 GB","source":"_files_gz/results/_files_bluesky_gz_100m.json"}
+,{"system":"data.json.gz","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":10000000,"dataset_size_readable":"10m","data_compression":"gz","total_size":1354902507,"total_size_readable":"1.35 GB","source":"_files_gz/results/_files_bluesky_gz_10m.json"}
+,{"system":"data.json.gz","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000,"dataset_size_readable":"1m","data_compression":"gz","total_size":135176827,"total_size_readable":"135.17 MB","source":"_files_gz/results/_files_bluesky_gz_1m.json"}
+,{"system":"data.json","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","data_compression":"none","total_size":482108809691,"total_size_readable":"482.11 GB","source":"_files_json/results/_files_bluesky_json_1000m.json"}
+,{"system":"data.json","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","data_compression":"none","total_size":47813179260,"total_size_readable":"47.81 GB","source":"_files_json/results/_files_bluesky_json_100m.json"}
+,{"system":"data.json","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":10000000,"dataset_size_readable":"10m","data_compression":"none","total_size":4858741288,"total_size_readable":"4.86 GB","source":"_files_json/results/_files_bluesky_json_10m.json"}
+,{"system":"data.json","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000,"dataset_size_readable":"1m","data_compression":"none","total_size":480778277,"total_size_readable":"480.78 MB","source":"_files_json/results/_files_bluesky_json_1m.json"}
+,{"system":"data.json.lz4","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","data_compression":"lz4","total_size":206562787263,"total_size_readable":"206.56 GB","source":"_files_lz4/results/_files_bluesky_lz4_1000m.json"}
+,{"system":"data.json.lz4","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","data_compression":"lz4","total_size":20591959778,"total_size_readable":"20.59 GB","source":"_files_lz4/results/_files_bluesky_lz4_100m.json"}
+,{"system":"data.json.lz4","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":10000000,"dataset_size_readable":"10m","data_compression":"lz4","total_size":2084888024,"total_size_readable":"2.08 GB","source":"_files_lz4/results/_files_bluesky_lz4_10m.json"}
+,{"system":"data.json.lz4","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000,"dataset_size_readable":"1m","data_compression":"lz4","total_size":208385826,"total_size_readable":"208.39 MB","source":"_files_lz4/results/_files_bluesky_lz4_1m.json"}
+,{"system":"data.json.zstd","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","data_compression":"zstd(1)","total_size":123797963671,"total_size_readable":"123.80 GB","source":"_files_zstd/results/_files_bluesky_zstd_1000m.json"}
+,{"system":"data.json.zstd","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","data_compression":"zstd(1)","total_size":12245368182,"total_size_readable":"12.25 GB","source":"_files_zstd/results/_files_bluesky_zstd_100m.json"}
+,{"system":"data.json.zstd","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":10000000,"dataset_size_readable":"10m","data_compression":"zstd(1)","total_size":1269817486,"total_size_readable":"1.27 GB","source":"_files_zstd/results/_files_bluesky_zstd_10m.json"}
+,{"system":"data.json.zstd","fake":true,"date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000,"dataset_size_readable":"1m","data_compression":"zstd(1)","total_size":126734406,"total_size_readable":"126.73 MB","source":"_files_zstd/results/_files_bluesky_zstd_1m.json"}
 ,{"system":"ClickHouse (lz4)","version":"25.1.1.2571","os":"Ubuntu 24.04","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","num_loaded_documents":999999258,"data_compression":"lz4","total_size":159834794888,"total_size_readable":"159.83 GB","data_size":158959086724,"data_size_readable":"158.96 GB","index_size":875707939,"index_size_readable":"875.71 MB","result":[[0.401,0.395,0.389],[21.445,5.542,5.587],[34.907,2.334,2.351],[8.173,0.563,0.556],[8.178,0.61,0.573]],"result_readable":["401.00 msec, 395.00 msec, 389.00 msec","21.45 sec, 5.54 sec, 5.59 sec","34.91 sec, 2.33 sec, 2.35 sec","8.17 sec, 563.00 msec, 556.00 msec","8.18 sec, 610.00 msec, 573.00 msec"],"memory_usage":[[2418416,1362125,1934870],[4857932616,4839715303,4870295739],[148886114,139232115,140070546],[2500677923,2573855740,2556181514],[2694349228,3086817972,2623063375]],"memory_usage_readable":["2.42 MB, 1.36 MB, 1.93 MB","4.86 GB, 4.84 GB, 4.87 GB","148.89 MB, 139.23 MB, 140.07 MB","2.50 GB, 2.57 GB, 2.56 GB","2.69 GB, 3.09 GB, 2.62 GB"],"source":"clickhouse/results/m6i.8xlarge_bluesky_1000m_lz4.json"}
 ,{"system":"ClickHouse (zstd)","version":"25.1.1.2571","os":"Ubuntu 24.04","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":1000000000,"dataset_size_readable":"1000m","num_loaded_documents":999999258,"data_compression":"zstd","total_size":99230044699,"total_size_readable":"99.23 GB","data_size":98355025153,"data_size_readable":"98.36 GB","index_size":875019321,"index_size_readable":"875.02 MB","result":[[0.405,0.395,0.394],[11.854,5.632,5.749],[28.899,2.466,2.488],[5.384,0.609,0.596],[5.405,0.64,0.637]],"result_readable":["405.00 msec, 395.00 msec, 394.00 msec","11.85 sec, 5.63 sec, 5.75 sec","28.90 sec, 2.47 sec, 2.49 sec","5.38 sec, 609.00 msec, 596.00 msec","5.41 sec, 640.00 msec, 637.00 msec"],"memory_usage":[[2779174,1363689,783683],[4823948860,4871634449,4918802526],[147631790,139732345,139867057],[2537597752,2638168515,2609289232],[2796756189,2927194160,2788741563]],"memory_usage_readable":["2.78 MB, 1.36 MB, 783.68 KB","4.82 GB, 4.87 GB, 4.92 GB","147.63 MB, 139.73 MB, 139.87 MB","2.54 GB, 2.64 GB, 2.61 GB","2.80 GB, 2.93 GB, 2.79 GB"],"source":"clickhouse/results/m6i.8xlarge_bluesky_1000m_zstd.json"}
 ,{"system":"ClickHouse (lz4)","version":"25.1.1.2571","os":"Ubuntu 24.04","date":"2025-01-13","machine":"m6i.8xlarge, 10000gib gp3","cluster_size":1,"comment":"","tags":[],"dataset_size":100000000,"dataset_size_readable":"100m","num_loaded_documents":99999968,"data_compression":"lz4","total_size":15793562624,"total_size_readable":"15.79 GB","data_size":15771339413,"data_size_readable":"15.77 GB","index_size":222231402,"index_size_readable":" 22.22 MB","result":[[0.054,0.041,0.041],[2.344,0.724,0.724],[2.114,0.226,0.228],[0.38,0.087,0.085],[0.648,0.088,0.092]],"result_readable":["54.00 msec, 41.00 msec, 41.00 msec","2.34 sec, 724.00 msec, 724.00 msec","2.11 sec, 226.00 msec, 228.00 msec","380.00 msec, 87.00 msec, 85.00 msec","648.00 msec, 88.00 msec, 92.00 msec"],"memory_usage":[[713196,1512167,859315],[1044281095,1061751337,1065857874],[143081365,142096261,142096261],[595252210,568894822,585137315],[657713321,690210788,697155477]],"memory_usage_readable":["713.20 KB, 1.51 MB, 859.32 KB","1.04 GB, 1.06 GB, 1.07 GB","143.08 MB, 142.10 MB, 142.10 MB","595.25 MB, 568.89 MB, 585.14 MB","657.71 MB, 690.21 MB, 697.16 MB"],"source":"clickhouse/results/m6i.8xlarge_bluesky_100m_lz4.json"}
@@ -459,7 +467,7 @@ if (new_theme && new_theme != theme) {
 let systems = document.getElementById('selectors_system');
 let scales = document.getElementById('selectors_scale');
 
-let unique_systems = [... new Set(data.map(elem => elem.system))];
+let unique_systems = [... new Set(data.filter(elem => !elem.fake).map(elem => elem.system))];
 
 function toggle(e, elem, selectors_map) {
     selectors_map[elem] = !selectors_map[elem];
@@ -590,9 +598,9 @@ function renderSummary(filtered_data) {
 
     let summary = {};
 
-    const num_queries = filtered_data[0].result.length;
+    const num_queries = queries.length;
 
-    const baseline_data = [...filtered_data[0].result.keys()].map(query_num =>
+    const baseline_data = [...queries.keys()].map(query_num =>
         [...Array(3).keys()].map(run_num =>
             Math.min(...filtered_data.filter(elem => !elem.fake && elem.result.length > 0).map(elem => elem.result[query_num][run_num]).filter(x => x))));
 
@@ -607,9 +615,7 @@ function renderSummary(filtered_data) {
         summaries = filtered_data.map(elem => elem.total_size / min_data_size);
         document.getElementById('metric-title').innerText = 'Storage size (lower is better)';
     } else {
-        summaries = filtered_data.filter(elem => elem.result.length > 0).map(elem => {
-            const fallback_timing = missing_result_penalty * Math.max(missing_result_time, ...elem.result.map(timings => selectRun(timings)));
-
+        summaries = filtered_data.map(elem => {
             let accumulator = 0;
             let used_queries = 0;
 
@@ -617,7 +623,9 @@ function renderSummary(filtered_data) {
 
             for (let i = 0; i < num_queries; ++i) {
                 if (no_queries_selected || selectors.queries[i]) {
-                    const curr_timing = selectRun(elem.result[i]) ?? fallback_timing;
+                    const fallback_timing = missing_result_penalty * Math.max(missing_result_time, ...filtered_data.filter(other => other.result.length > i).map(other => selectRun(other.result[i])));
+
+                    const curr_timing = elem.fake || elem.result.length <= i ? fallback_timing : selectRun(elem.result[i]) ?? fallback_timing;
                     const baseline_timing = selectRun(baseline_data[i]);
                     const ratio = (constant_time_add + curr_timing) / (constant_time_add + baseline_timing);
                     accumulator += Math.log(ratio);
@@ -637,6 +645,7 @@ function renderSummary(filtered_data) {
         const elem = filtered_data[idx];
 
         if (selectors.metric == 'size' && elem.total_size === null) { return; }
+        if (selectors.metric != 'size' && elem.fake) { return; }
 
         let tr = document.createElement('tr');
         tr.className = 'summary-row';
@@ -646,14 +655,10 @@ function renderSummary(filtered_data) {
         let td_name = document.createElement('td');
         td_name.className = 'summary-name';
 
-        if (!elem.fake) {
-            let link = document.createElement('a');
-            link.appendChild(document.createTextNode(`${elem.system}`));
-            link.href = "https://github.com/ClickHouse/JSONBench/blob/main/" + elem.source;
-            td_name.appendChild(link);
-        } else {
-            td_name.appendChild(document.createTextNode(elem.system));
-        }
+        let link = document.createElement('a');
+        link.appendChild(document.createTextNode(`${elem.system}`));
+        link.href = "https://github.com/ClickHouse/JSONBench/blob/main/" + elem.source;
+        td_name.appendChild(link);
 
         if (elem.comment) { td_name.appendChild(addNote(elem.comment)); }
         td_name.appendChild(document.createTextNode(': '));
@@ -682,7 +687,7 @@ function renderSummary(filtered_data) {
 
         let bar = document.createElement('div');
 
-        bar.className = `summary-bar`;
+        bar.className = elem.fake ? `summary-bar-fake` : `summary-bar`;
         bar.style.width = `${percentage}%`;
 
         td_bar.appendChild(bar);
@@ -752,7 +757,7 @@ function render() {
     clearElement(details_body);
 
     let filtered_data = data.filter(elem =>
-        selectors.system[elem.system] &&
+        (selectors.system[elem.system] || (selectors.metric == 'size' && elem.fake)) &&
         selectors.scale == elem.dataset_size);
 
     let nothing_selected_elem = document.getElementById('nothing-selected');
@@ -846,7 +851,7 @@ function render() {
     }
 
     /// Query runtimes
-    const num_queries = filtered_data[0].result.length;
+    const num_queries = queries.length;
 
     for (let query_num = 0; query_num < num_queries; ++query_num) {
         let tr = document.createElement('tr');
