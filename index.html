@@ -383,12 +383,6 @@ const data = [
         <td id="selectors_scale">
         </td>
     </tr>
-    <tr style="display: none;">
-        <th>Machine: </th>
-        <td id="selectors_machine">
-            <a id="select-all-machines" class="selector selector-active">All</a>
-        </td>
-    </tr>
     <tr>
         <th>Metric: </th>
         <td id="selectors_run">
@@ -404,7 +398,7 @@ const data = [
     <thead>
         <tr>
             <th class="summary-name">
-                System &amp; Machine
+                System
             </th>
             <th colspan="2">
                 <span id="metric-title">Relative time (lower is better)</span>
@@ -439,7 +433,6 @@ const missing_result_time = 3600;
 let selectors = {
     "system": {},
     "scale": 1000_000_000,
-    "machine": {},
     "metric": "hot",
     "queries": [],
 };
@@ -465,7 +458,6 @@ if (new_theme && new_theme != theme) {
 
 let systems = document.getElementById('selectors_system');
 let scales = document.getElementById('selectors_scale');
-let machines = document.getElementById('selectors_machine');
 
 let unique_systems = [... new Set(data.map(elem => elem.system))];
 
@@ -540,17 +532,7 @@ unique_systems.map(elem => {
     selector.addEventListener('click', e => { selectors.scale = elem; switchTo(e, 'scale') });
 });
 
-[... new Set(data.map(elem => elem.machine))].map(elem => {
-    let selector = document.createElement('a');
-    selector.classList.add('selector-active');
-    selector.appendChild(document.createTextNode(elem));
-    machines.appendChild(selector);
-    if (!(elem in selectors.machine)) { selectors.machine[elem] = true; }
-    selector.addEventListener('click', e => toggle(e, elem, selectors.machine));
-});
-
 document.getElementById('select-all-systems').addEventListener('click', e => toggleAll(e, selectors.system));
-document.getElementById('select-all-machines').addEventListener('click', e => toggleAll(e, selectors.machine));
 
 [...document.getElementById('selectors_run').querySelectorAll('a')].map(elem => elem.addEventListener('click', e => switchTo(e)));
 
@@ -563,7 +545,6 @@ selectors.queries = queries.map(() => true);
 
 function updateSelectors() {
     [...systems.childNodes].filter(elem => elem.tagName == 'A').map(elem => { elem.className = selectors.system[elem.innerText] ? 'selector selector-active' : 'selector' });
-    [...machines.childNodes].filter(elem => elem.tagName == 'A').map(elem => { elem.className = selectors.machine[elem.innerText] ? 'selector selector-active' : 'selector' });
     [...scales.childNodes].filter(elem => elem.tagName == 'A').map(elem => { elem.className = (selectors.scale == elem.dataset.value) ? 'selector selector-active' : 'selector' });
 
     [...document.getElementById('selectors_run').querySelectorAll('a')].map(elem => {
@@ -772,7 +753,6 @@ function render() {
 
     let filtered_data = data.filter(elem =>
         selectors.system[elem.system] &&
-        selectors.machine[elem.machine] &&
         selectors.scale == elem.dataset_size);
 
     let nothing_selected_elem = document.getElementById('nothing-selected');
