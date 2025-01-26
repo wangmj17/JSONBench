@@ -2,7 +2,7 @@
 
 ## Overview
 
-This benchmark compares the native support JSON of most popular analytical databases.
+This benchmark compares the native JSON support of the most popular analytical databases.
 
 The dataset is a collection of files containing JSON objects delimited by newline (ndjson). This was obtained using Jetstream to collect Bluesky events. The dataset contains 1 billion Bluesky events and is currently hosted on a public S3 bucket. 
 
@@ -16,11 +16,11 @@ You can easily reproduce every test (although for some systems it may take from 
 
 ### Realism
 
-The dataset is represented by a real-world production data. The realistic data distributions allow for correctly accounting for compression, indices, codecs, custom data structures, etc., which is not possible with most of the random dataset generators. It can test various aspects of hardware as well: some queries require high storage throughput; some queries benefit from a large number of CPU cores, and some benefit from single-core speed; some queries benefit from high main memory bandwidth.
+The dataset is represented by real-world production data. The realistic data distributions allow for correctly accounting for compression, indices, codecs, custom data structures, etc., which is not possible with most of the random dataset generators. It can test various aspects of hardware as well: some queries require high storage throughput; some queries benefit from a large number of CPU cores, and some benefit from single-core speed; some queries benefit from high main memory bandwidth.
 
 ### Fairness
 
-Best efforts should be taken to understand the details of every tested system for fair comparison. It is allowed to apply various indexing methods whenever appropriate.
+Best efforts should be taken to understand the details of every tested system for a fair comparison. It is allowed to apply various indexing methods whenever appropriate.
 
 It is not allowed to use query results caching or flatten JSON at the insertion time.  
 
@@ -30,7 +30,7 @@ The goal is to advance the possibilities of data analytics on semistructured dat
 
 ## Limitations
 
-The benchmark focuses on data analytics queries rather than search or single-value retrieval or mutating operations.
+The benchmark focuses on data analytics queries rather than search, single-value retrieval, or mutating operations.
 
 ## Pre-requisites
 
@@ -41,7 +41,7 @@ For reference, the initial benchmarks have been run on the following machines:
 - Disk: > 10Tb gp3
 - OS: Ubuntu 24.04
 
-If you're interested in running the full benchmark, be aware that it will take several hours, or days depending on the database.
+If you're interested in running the full benchmark, be aware that it will take several hours or days depending on the database.
 
 ## Usage 
 
@@ -72,10 +72,10 @@ The script `main.sh` is the script to run each benchmark.
 
 Usage: `main.sh <DATA_DIRECTORY> <SUCCESS_LOG> <ERROR_LOG> <OUTPUT_PREFIX>`
 
-- `<DATA_DIRECTORY>`: The directory where the dataset is stored. Default is `~/data/bluesky`.
-- `<SUCCESS_LOG>`: The file to log successful operations. Default is `success.log`.
-- `<ERROR_LOG>`: The file to log errors. Default is `error.log`.
-- `<OUTPUT_PREFIX>`: The prefix for output files. Default is `_m6i.8xlarge`.
+- `<DATA_DIRECTORY>`: The directory where the dataset is stored. The default is `~/data/bluesky`.
+- `<SUCCESS_LOG>`: The file to log successful operations. The default is `success.log`.
+- `<ERROR_LOG>`: The file to log errors. The default is `error.log`.
+- `<OUTPUT_PREFIX>`: The prefix for output files. The default is `_m6i.8xlarge`.
 
 For example, for clickhouse:
 
@@ -92,9 +92,9 @@ Select the dataset size to benchmark:
 Enter the number corresponding to your choice: 
 ```
 
-Enter the dataset size you want to run the benchmark for, then hit enter. 
+Enter the dataset size for which you want to run the benchmark, then hit enter. 
 
-The script install the database system on the current machine, then prepare and run the benchmark.
+The script installs the database system on the current machine and then prepares and runs the benchmark.
 
 ### Retrieve results
 
@@ -110,16 +110,16 @@ Below is a description of the files that might be generated as a result of the b
 - `.results_runtime`: Contains the runtime results of the benchmark.
 - `.results_memory_usage`: Contains the memory usage results of the benchmark.
 
-The last step of our benchmark is manual (PRs to automate this last step are welcome). We manually retrieve the information from the outputted files into the final result JSON documents which we add into the `results` subdirectory within the benchmark candidate's subdirectory. 
+The last step of our benchmark is manual (PRs to automate this last step are welcome). We manually retrieve the information from the outputted files into the final result JSON documents, which we add to the `results` subdirectory within the benchmark candidate's subdirectory. 
 
 For example, this is the [results](./clickhouse/results) directory for our ClickHouse benchmark results.
 
 ## Add a new database
 
 We highly welcome additions of new entries in the benchmark! Please don't hesitate to contribute one.
-You don't have to be affiliated with the database engine to contribute the benchmark.
+You don't have to be affiliated with the database engine to contribute to the benchmark.
 
-While the main benchmark uses a specific machine configuration for reproducibility, we will be interested to receive results for cloud services and data lakes for reference comparisons.
+While the main benchmark uses a specific machine configuration for reproducibility, we will be interested in receiving results for cloud services and data lakes for reference comparisons.
 
 - [x] ClickHouse
 - [x] Elasticsearch
@@ -132,6 +132,7 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [ ] Snowflake
 - [ ] Manticore Search
 - [ ] SingleStore
+- [ ] SurrealDB
 
 ## Similar projects
 
