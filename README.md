@@ -121,6 +121,8 @@ For example, this is the [results](./clickhouse/results) directory for our Click
 We highly welcome additions of new entries in the benchmark! Please don't hesitate to contribute one.
 You don't have to be affiliated with the database engine to contribute to the benchmark.
 
+We welcome all types of databases, including open-source and closed-source, commercial and experimental, distributed or embedded, except one-off customized builds for the benchmark.
+
 While the main benchmark uses a specific machine configuration for reproducibility, we will be interested in receiving results for cloud services and data lakes for reference comparisons.
 
 - [x] ClickHouse
