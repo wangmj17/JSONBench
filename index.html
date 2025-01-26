@@ -503,6 +503,7 @@ unique_systems.map(elem => {
     let selector = document.createElement('a');
     selector.classList.add('selector-active');
     selector.appendChild(document.createTextNode(elem));
+    selector.dataset.name = elem;
 
     if (!elem.startsWith('_')) {
         systems.appendChild(selector);
@@ -552,7 +553,8 @@ document.getElementById('selector-metric-quality').addEventListener('click', e =
 selectors.queries = queries.map(() => true);
 
 function updateSelectors() {
-    [...systems.childNodes].filter(elem => elem.tagName == 'A').map(elem => { elem.className = selectors.system[elem.innerText] ? 'selector selector-active' : 'selector' });
+    [...systems.childNodes].filter(elem => elem.tagName == 'A').map(elem => {
+        elem.className = selectors.system[elem.dataset.name] ? 'selector selector-active' : 'selector' });
     [...scales.childNodes].filter(elem => elem.tagName == 'A').map(elem => { elem.className = (selectors.scale == elem.dataset.value) ? 'selector selector-active' : 'selector' });
 
     [...document.getElementById('selectors_run').querySelectorAll('a')].map(elem => {
