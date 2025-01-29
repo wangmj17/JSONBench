@@ -4,11 +4,13 @@
 
 This benchmark compares the native JSON support of the most popular analytical databases.
 
-The dataset is a collection of files containing JSON objects delimited by newline (ndjson). This was obtained using Jetstream to collect Bluesky events. The dataset contains 1 billion Bluesky events and is currently hosted on a public S3 bucket. 
+The [dataset](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#the-json-dataset---a-billion-bluesky-events) is a collection of files containing JSON objects delimited by newline (ndjson). This was obtained using Jetstream to collect Bluesky events. The dataset contains 1 billion Bluesky events and is currently hosted on a public S3 bucket. 
+
+We wrote a [detailed blog post](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql) on JSONBench, explaining how it works and showcasing benchmark results for the first five databases: ClickHouse, MongoDB, Elasticsearch, DuckDB, and PostgreSQL.
 
 ## Principles
 
-The main principles of this benchmark are:
+The [main principles](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#benchmark-methodology) of this benchmark are:
 
 ### Reproducibility
 
@@ -16,13 +18,13 @@ You can easily reproduce every test (although for some systems it may take from 
 
 ### Realism
 
-The dataset is represented by real-world production data. The realistic data distributions allow for correctly accounting for compression, indices, codecs, custom data structures, etc., which is not possible with most of the random dataset generators. It can test various aspects of hardware as well: some queries require high storage throughput; some queries benefit from a large number of CPU cores, and some benefit from single-core speed; some queries benefit from high main memory bandwidth.
+[The dataset](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#the-json-dataset---a-billion-bluesky-events) is represented by real-world production data. The realistic data distributions allow for correctly accounting for compression, indices, codecs, custom data structures, etc., which is not possible with most of the random dataset generators. It can test various aspects of hardware as well: some queries require high storage throughput; some queries benefit from a large number of CPU cores, and some benefit from single-core speed; some queries benefit from high main memory bandwidth.
 
 ### Fairness
 
-Best efforts should be taken to understand the details of every tested system for a fair comparison. It is allowed to apply various indexing methods whenever appropriate.
+Best efforts should be taken to understand the details of every tested system for a fair comparison. It is allowed to apply various [indexing methods](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#some-json-paths-can-be-used-for-indexes-and-data-sorting) whenever appropriate.
 
-It is not allowed to use query results caching or flatten JSON at the insertion time.  
+It is [not allowed](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#no-query-results-cache) to use query results caching or flatten JSON at the insertion time.  
 
 ## Goals
 
@@ -125,11 +127,11 @@ We welcome all types of databases, including open-source and closed-source, comm
 
 While the main benchmark uses a specific machine configuration for reproducibility, we will be interested in receiving results for cloud services and data lakes for reference comparisons.
 
-- [x] ClickHouse
-- [x] Elasticsearch
-- [x] MongoDB
-- [x] DuckDB
-- [x] PostgreSQL
+- [x] [ClickHouse](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#clickhouse)
+- [x] [Elasticsearch](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#elasticsearch)
+- [x] [MongoDB](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#mongodb)
+- [x] [DuckDB](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#duckdb)
+- [x] [PostgreSQL](https://clickhouse.com/blog/bluesky-json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#postgresql)
 - [ ] Quickwit
 - [ ] Meilisearch
 - [ ] Sneller
