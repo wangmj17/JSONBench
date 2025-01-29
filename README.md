@@ -137,6 +137,9 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [ ] Manticore Search
 - [ ] SingleStore
 - [ ] SurrealDB
+- [ ] OpenText Vertica
+- [ ] PartiQL
+- [ ] FishStore
 
 ## Similar projects
 
