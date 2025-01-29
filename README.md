@@ -138,6 +138,7 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [ ] SingleStore
 - [ ] SurrealDB
 - [ ] OpenText Vertica
+- [ ] VictoriaLogs
 - [ ] PartiQL
 - [ ] FishStore
 
