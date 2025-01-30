@@ -12,11 +12,24 @@
   "dataset_size_readable": "1000m",
   "num_loaded_documents": 804000000,
   "data_compression": "pglz",
-  "total_size": 626370043904,
-  "total_size_readable": "626.37 GB",
-  "data_size": 517953454080,
-  "data_size_readable": "517.95 GB",
-  "index_size": 108392701952,
-  "index_size_readable": "108.39 GB",
-  "result": []
+  "total_size": 660828643328,
+  "total_size_readable": "660.83 GB",
+  "data_size": 512573440000,
+  "data_size_readable": "512.57 GB",
+  "index_size": 148222607360,
+  "index_size_readable": "148.22 GB",
+  "result": [
+    [3907.81,3891.66,3887.55],
+    [32598,32600.7,32598],
+    [4267.02,4246.18,4248.89],
+    [4902.93,4887.97,4870.85],
+    [4919.4,4894.7,4914.49]
+  ],
+  "result_readable": [
+    "1 hr 5 min 7.81 sec, 1 hr 4 min 51.66 sec, 1 hr 4 min 47.55 sec",
+    "9 hr 3 min 18.00 sec, 9 hr 3 min 20.70 sec, 9 hr 3 min 18.00 sec",
+    "1 hr 11 min 7.02 sec, 1 hr 10 min 46.18 sec, 1 hr 10 min 48.89 sec",
+    "1 hr 21 min 42.93 sec, 1 hr 21 min 27.97 sec, 1 hr 21 min 10.85 sec",
+    "1 hr 21 min 59.40 sec, 1 hr 21 min 34.70 sec, 1 hr 21 min 54.49 sec"
+  ]
 }
