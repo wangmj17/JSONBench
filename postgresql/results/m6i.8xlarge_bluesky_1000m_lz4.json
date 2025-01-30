@@ -12,24 +12,24 @@
   "dataset_size_readable": "1000m",
   "num_loaded_documents": 804000000,
   "data_compression": "lz4",
-  "total_size": 621943373824,
-  "total_size_readable": "621.94 GB",
-  "data_size": 515141804032,
-  "data_size_readable": "515.14 GB",
-  "index_size": 106787012608,
-  "index_size_readable": "106.79 GB",
+  "total_size": 654739636224,
+  "total_size_readable": "654.74 GB",
+  "data_size": 506726694912,
+  "data_size_readable": "506.73 GB",
+  "index_size": 147981623296,
+  "index_size_readable": "147.98 GB",
   "result": [
-    [3926.72,3907.11,3907.12],
-    [32612.2,32621.1,32627.6],
-    [4295.96,4276.21,4274.22],
-    [6325.82,6304.88,6292.72],
-    [6337.16,6312.37,6309.17]
+    [3863.35,3843.05,3843.04],
+    [32553.3,32554.5,32553.9],
+    [4222.61,4212.91,4208.16],
+    [4890.82,4873.02,4871.11],
+    [4900.32,4883.62,4873.68]
   ],
   "result_readable": [
-    "1 hr 5 min 26.72 sec, 1 hr 5 min 7.11 sec, 1 hr 5 min 7.12 sec",
-    "9 hr 3 min 32.20 sec, 9 hr 3 min 41.10 sec, 9 hr 3 min 47.60 sec",
-    "1 hr 11 min 35.96 sec, 1 hr 11 min 16.21 sec, 1 hr 11 min 14.22 sec",
-    "1 hr 45 min 25.82 sec, 1 hr 45 min 4.88 sec, 1 hr 44 min 52.72 sec",
-    "1 hr 45 min 37.16 sec, 1 hr 45 min 12.37 sec, 1 hr 45 min 9.17 sec"
+    "1 hr 4 min 23.35 sec, 1 hr 4 min 3.05 sec, 1 hr 4 min 3.04 sec",
+    "9 hr 2 min 33.30 sec, 9 hr 2 min 34.50 sec, 9 hr 2 min 33.90 sec",
+    "1 hr 10 min 22.61 sec, 1 hr 10 min 12.91 sec, 1 hr 10 min 8.16 sec",
+    "1 hr 21 min 30.82 sec, 1 hr 21 min 13.02 sec, 1 hr 21 min 11.11 sec",
+    "1 hr 21 min 40.32 sec, 1 hr 21 min 23.62 sec, 1 hr 21 min 13.68 sec"
   ]
 }
