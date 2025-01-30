@@ -51,7 +51,7 @@ If you're interested in running the full benchmark, be aware that it will take s
 
 Each folder contains the scripts required to run the benchmark on a database, by example [clickhouse](./clickhouse/) folder contains the scripts to run the benchmark on ClickHouse.
 
-The full dataset contains 1 billion rows, but the benchmark runs for different dataset sizes (1 million, 10 million, 100 million and 1 billion rows) in order to compare results at different scale. 
+The full dataset contains 1 billion rows, but the benchmark runs for [different dataset sizes](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#the-json-dataset---a-billion-bluesky-events) (1 million, 10 million, 100 million and 1 billion rows) and [compression settings](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#the-json-dataset---a-billion-bluesky-events) in order to compare results at different scale. 
 
 ### Download the data
 
