@@ -143,6 +143,7 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [ ] VictoriaLogs
 - [ ] PartiQL
 - [ ] FishStore
+- [ ] FerretDB
 
 ## Similar projects
 
