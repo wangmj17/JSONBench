@@ -144,6 +144,8 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [ ] PartiQL
 - [ ] FishStore
 - [ ] FerretDB
+- [ ] Apache Drill
+- [ ] GlareDB
 
 ## Similar projects
 
