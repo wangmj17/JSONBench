@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RELEASE_VERSION=v1.9.1-victorialogs
+RELEASE_VERSION=v1.10.0-victorialogs
 
 # stop the existing victorialogs instance if any and drop its data
 while true

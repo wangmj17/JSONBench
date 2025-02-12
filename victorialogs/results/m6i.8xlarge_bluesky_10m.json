@@ -1,8 +1,8 @@
 {
   "system": "VictoriaLogs",
-  "version": "v1.9.0-victorialogs",
+  "version": "v1.10.0-victorialogs",
   "os": "Ubuntu 24.04",
-  "date": "2025-02-10",
+  "date": "2025-02-13",
   "machine": "m6i.8xlarge, 10000gib gp3",
   "cluster_size": 1,
   "comment": "",
@@ -12,24 +12,24 @@
   "dataset_size_readable": "10m",
   "num_loaded_documents": 9999994,
   "data_compression": "auto",
-  "total_size": 1238386852,
+  "total_size": 1237318452,
   "total_size_readable": "1.24 GB",
-  "data_size": 1106058628,
+  "data_size": 1105087164,
   "data_size_readable": "1.11 GB",
-  "index_size": 132328224,
+  "index_size": 132046480,
   "index_size_readable": "132 MB",
   "result": [
-    [0.026, 0.008, 0.008],
-    [0.545, 0.505, 0.55],
-    [0.087, 0.069, 0.069],
-    [0.259, 0.22, 0.199],
-    [0.294, 0.303, 0.328]
+    [0.57, 0.006, 0.006],
+    [1.27, 0.637, 0.164],
+    [0.351, 0.028, 0.031],
+    [0.197, 0.156, 0.157],
+    [0.256, 0.194, 0.193]
   ],
   "result_readable": [
-    "26.00 msec, 8.00 msec, 8.00 msec",
-    "545.00 msec, 505.00 msec, 550.00 msec",
-    "87.00 msec, 69.00 msec, 69.00 msec",
-    "259.00 msec, 220.00 msec, 199.00 msec",
-    "294.00 msec, 303.00 msec, 328.00 msec"
+    "57.00 msec, 6.00 msec, 6.00 msec",
+    "1270.00 msec, 637.00 msec, 164.00 msec",
+    "351.00 msec, 28.00 msec, 31.00 msec",
+    "197.00 msec, 156.00 msec, 157.00 msec",
+    "256.00 msec, 194.00 msec, 193.00 msec"
   ]
 }
