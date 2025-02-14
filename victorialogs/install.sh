@@ -1,11 +1,12 @@
 #!/bin/bash
 
-RELEASE_VERSION=v1.10.0-victorialogs
+RELEASE_VERSION=v1.10.1-victorialogs
 
 # stop the existing victorialogs instance if any and drop its data
 while true
 do
     pidof victoria-logs-prod && kill `pidof victoria-logs-prod` || break
+    sleep 1
 done
 rm -rf victoria-logs-data
 
