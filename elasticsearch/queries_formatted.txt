@@ -8,6 +8,7 @@ POST /_query?format=txt
 }
 
 -- Q2 - Top event types together with unique users per event type
+-- Note, Elasticsearch does not support exact count. COUNT_DISTINCT returns only an estimate. 
 
 POST /_query?format=txt
 {
