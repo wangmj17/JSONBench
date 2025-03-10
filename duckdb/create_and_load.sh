@@ -20,10 +20,8 @@ ERROR_LOG="$7"
 [[ ! -d "$DATA_DIRECTORY" ]] && { echo "Error: Data directory '$DATA_DIRECTORY' does not exist."; exit 1; }
 [[ ! "$NUM_FILES" =~ ^[0-9]+$ ]] && { echo "Error: NUM_FILES must be a positive integer."; exit 1; }
 
-# Create database and execute DDL
-duckdb $DB_NAME < "$DDL_FILE"
+echo "Create database and execute DDL"
+duckdb ~/$DB_NAME < "$DDL_FILE"
 
-# Load data
+echo "Load data"
 ./load_data.sh "$DATA_DIRECTORY" "$DB_NAME" "$TABLE_NAME" "$NUM_FILES" "$SUCCESS_LOG" "$ERROR_LOG"
-
-echo "Script completed successfully."
