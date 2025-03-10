@@ -28,7 +28,7 @@ counter=0
 # Loop through each .json.gz file in the directory
 for file in $(ls "$DIRECTORY"/*.json.gz | sort); do
     # if [[ -f "$file" ]]; then
-    #     wuckdb ~/$DB_NAME -c "insert into $TABLE_NAME select * from read_ndjson_objects('$file', ignore_errors=false, maximum_object_size=1048576000);"
+    #     duckdb ~/$DB_NAME -c "insert into $TABLE_NAME select * from read_ndjson_objects('$file', ignore_errors=false, maximum_object_size=1048576000);"
     # fi
     if [[ -f "$file" ]]; then
         # Create a temporary directory for split files
