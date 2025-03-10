@@ -21,13 +21,11 @@ ERROR_LOG="$7"
 [[ ! "$NUM_FILES" =~ ^[0-9]+$ ]] && { echo "Error: NUM_FILES must be a positive integer."; exit 1; }
 
 
-# Create database
+echo "Creating database $DB_NAME"
 clickhouse-client --query "CREATE DATABASE IF NOT EXISTS $DB_NAME"
 
-# Execute DDL
+echo "Executing DDL for database $DB_NAME"
 clickhouse-client --database="$DB_NAME" --enable_json_type=1 --multiquery < "$DDL_FILE"
 
-# Load data
+echo "Loading data for database $DB_NAME"
 ./load_data.sh "$DATA_DIRECTORY" "$DB_NAME" "$TABLE_NAME" "$NUM_FILES" "$SUCCESS_LOG" "$ERROR_LOG"
-
-echo "Script completed successfully."
