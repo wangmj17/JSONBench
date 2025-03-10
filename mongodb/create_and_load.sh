@@ -26,7 +26,5 @@ mongosh --quiet --eval "
     load('$DDL_FILE');
 "
 
-# Load data
+echo "Loading data"
 ./load_data.sh "$DATA_DIRECTORY" "$DB_NAME" "$COLLECTION_NAME" "$NUM_FILES" "$SUCCESS_LOG" "$ERROR_LOG"
-
-echo "Script completed successfully."
