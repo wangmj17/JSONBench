@@ -44,7 +44,7 @@ benchmark() {
     ./data_size.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.data_size"
     ./index_size.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.index_size"
     ./count.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.count"
-    # #./query_results.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.query_results"
+    #./query_results.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.query_results"
     ./run_queries.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.results_runtime"
     ./drop_tables.sh # also stops VictoriaLogs
 }
