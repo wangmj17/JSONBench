@@ -43,6 +43,7 @@ benchmark() {
     #./query_results.sh "db.duckdb_${size}" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m.query_results"
     ./physical_query_plans.sh "db.duckdb_${size}" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m.physical_query_plans"
     ./benchmark.sh "db.duckdb_${size}" "${OUTPUT_PREFIX}_bluesky_${size}m.results_runtime"
+    ./drop_table.sh "db.duckdb_${size}"
 }
 
 case $choice in
