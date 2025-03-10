@@ -31,21 +31,21 @@ read -p "Enter the number corresponding to your choice: " choice
 
 benchmark() {
     local size=$1
-
+    # Check DATA_DIRECTORY contains the required number of files to run the benchmark
+    file_count=$(find "$DATA_DIRECTORY" -type f | wc -l)
+    if (( file_count < size )); then
+        echo "Error: Not enough files in '$DATA_DIRECTORY'. Required: $size, Found: $file_count."
+        exit 1
+    fi
     ./start.sh
-
     ./load_data.sh "$DATA_DIRECTORY" "$size" "$SUCCESS_LOG" "$ERROR_LOG"
-
-    # sleep for a while for settling down the data
-    sleep 1
-
+    sleep 1 # sleep for a while for settling down the data
     ./total_size.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.total_size"
     ./data_size.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.data_size"
     ./index_size.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.index_size"
     ./count.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.count"
     #./query_results.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.query_results"
     ./run_queries.sh | tee "${OUTPUT_PREFIX}_bluesky_${size}m.results_runtime"
-
     ./drop_tables.sh # also stops VictoriaLogs
 }
 

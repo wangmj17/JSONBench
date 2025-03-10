@@ -25,9 +25,8 @@ ERROR_LOG="$6"
 [[ ! -d "$DATA_DIRECTORY" ]] && { echo "Error: Data directory '$DATA_DIRECTORY' does not exist."; exit 1; }
 [[ ! "$NUM_FILES" =~ ^[0-9]+$ ]] && { echo "Error: NUM_FILES must be a positive integer."; exit 1; }
 
-# Check ilm policy is installed, install if not
+echo "Checking if ILM policy is installed, install if not"
 # If curl return 404, means ILM policy is not installed
-
 http_code=$(curl -s -o /dev/null -k -w "%{http_code}" -X GET "https://localhost:9200/_ilm/policy/filebeat" -u "elastic:${ELASTIC_PASSWORD}" -H 'Content-Type: application/json')
 if [[ "$http_code" -eq 404 ]] ; then
     echo "Installing ILM policy"
@@ -35,18 +34,16 @@ if [[ "$http_code" -eq 404 ]] ; then
     curl -s -k -X PUT "https://localhost:9200/_ilm/policy/filebeat" -u "elastic:${ELASTIC_PASSWORD}" -H 'Content-Type: application/json' -d "$ILM_POLICY"
 fi
 
-# Install index template
-# Read index template file json from config/$INDEX_TEMPLATE_FILE 
+echo "Installing index template"
+# Read index template file json from config/$INDEX_TEMPLATE_FILE
 INDEX_TEMPLATE=$(cat "$INDEX_TEMPLATE_FILE")
 JSON_DATA=$(cat $INDEX_TEMPLATE_FILE | sed "s/\${INDEX_NAME}/$INDEX_NAME/g")
 echo "Install index template"
 curl -s -o /dev/null -k -X PUT "https://localhost:9200/_index_template/${INDEX_NAME}" -u "elastic:${ELASTIC_PASSWORD}" -H 'Content-Type: application/json' -d "$JSON_DATA"
 
-# Create the data stream
+echo "Creating the data stream"
 echo "Create the data stream"
 curl -s -o /dev/null -k -X PUT "https://localhost:9200/_data_stream/${INDEX_NAME}" -u "elastic:${ELASTIC_PASSWORD}" -H 'Content-Type: application/json'
 
-# Load data
+echo "Loading data"
 ./load_data.sh "$DATA_DIRECTORY" "$INDEX_NAME" "$NUM_FILES" "$SUCCESS_LOG" "$ERROR_LOG"
-
-echo "Script completed successfully."
