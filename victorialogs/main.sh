@@ -30,8 +30,6 @@ read -p "Enter the number corresponding to your choice: " choice
 benchmark() {
     local size=$1
 
-    ./download_data.sh "$DATA_DIRECTORY" "$size"
-
     # install is needed here in order to drop the previously ingested data
     ./install.sh
 
