@@ -6,6 +6,7 @@
   "machine": "m6i.8xlarge, 16000gib gp3",
   "cluster_size": 1,
   "comment": "",
+  "retains_structure": "no",
   "tags": [
   ],
   "dataset_size": 1000000,
