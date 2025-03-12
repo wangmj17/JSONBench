@@ -1,0 +1,25 @@
+{
+  "system": "Starrocks",
+  "version": "3.4.0-e94580b",
+  "os": "Ubuntu 24.04",
+  "date": "2025-01-13",
+  "machine": "m6i.8xlarge, 10000gib gp3",
+  "cluster_size": 1,
+  "comment": "",
+  "retains_structure": "yes",
+  "tags": [
+  ],
+  "dataset_size": 10000000,
+  "dataset_size_readable": "10m",
+  "num_loaded_documents": 10000000,
+  "data_compression": "zstd",
+  "total_size": 3193000000,
+  "total_size_readable": "3.193 GB",
+  "result": [
+    [0.10,0.12,0.09],
+    [1.79,0.43,0.37],
+    [0.48,0.45,0.47],
+    [0.57,0.70,0.62],
+    [0.59,0.72,0.73]
+  ]
+}
