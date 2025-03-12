@@ -16,10 +16,10 @@
   "total_size": 19182000000,
   "total_size_readable": "19.182 GB",
   "result": [
-    [0.25,0.17,0.17],
-    [8.13,4.33,3.82],
-    [3.18,3.08,3.05],
-    [4.06,4.07,4.12],
-    [4.04,4.20,3.97]
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
   ]
 }

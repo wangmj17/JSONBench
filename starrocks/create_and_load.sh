@@ -21,13 +21,11 @@ ERROR_LOG="$7"
 [[ ! "$NUM_FILES" =~ ^[0-9]+$ ]] && { echo "Error: NUM_FILES must be a positive integer."; exit 1; }
 
 
-# Create database
+echo "Create database"
 mysql -P 9030 -h 127.0.0.1 -u root -e "CREATE DATABASE IF NOT EXISTS $DB_NAME"
 
-# Execute DDL
+echo "Execute DDL"
 mysql -P 9030 -h 127.0.0.1 -u root $DB_NAME < "$DDL_FILE"
 
-# Load data
+echo "Load data"
 ./load_data.sh "$DATA_DIRECTORY" "$DB_NAME" "$TABLE_NAME" "$NUM_FILES" "$SUCCESS_LOG" "$ERROR_LOG"
-
-echo "Script completed successfully."

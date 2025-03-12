@@ -38,7 +38,7 @@ for file in $(ls "$DATA_DIRECTORY"/*.json.gz | head -n "$MAX_FILES"); do
     fi
     MAX_ATTEMPT=10
     attempt=0
-    while [ $attempt -lt $MAX_ATTEMPT ] 
+    while [ $attempt -lt $MAX_ATTEMPT ]
     do
         # Attempt the import
         http_code=$(curl -s -w "%{http_code}" -o >(cat >/tmp/curl_body) --location-trusted -u root: -H "strict_mode: true" -H "Expect:100-continue" -H "columns: data" -T "$uncompressed_file" -XPUT http://127.0.0.1:8030/api/"$DB_NAME"/"$TABLE_NAME"/_stream_load)
@@ -68,5 +68,3 @@ for file in $(ls "$DATA_DIRECTORY"/*.json.gz | head -n "$MAX_FILES"); do
         break
     fi
 done
-
-echo "Script completed successfully."
