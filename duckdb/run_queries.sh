@@ -9,7 +9,7 @@ fi
 # Arguments
 DB_NAME="$1"
 
-DUCKDB_CMD="duckdb $DB_NAME"
+DUCKDB_CMD="duckdb $HOME/$DB_NAME" # tilda somehow doesn't work
 
 TRIES=3
 

@@ -78,5 +78,3 @@ for file in $(ls "$DIRECTORY"/*.json.gz | sort); do
         echo "No .json.gz files found in the directory."
     fi
 done
-
-echo "All files have been processed."

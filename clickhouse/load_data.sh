@@ -68,5 +68,3 @@ for file in $(ls "$DATA_DIRECTORY"/*.json.gz | head -n "$MAX_FILES"); do
         break
     fi
 done
-
-echo "Script completed successfully."

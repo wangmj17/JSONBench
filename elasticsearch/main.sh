@@ -30,6 +30,7 @@ read -p "Enter the number corresponding to your choice: " choice
 ./install.sh
 
 benchmark() {
+    ./start.sh
     local size=$1
     local template=$2
     # Check DATA_DIRECTORY contains the required number of files to run the benchmark
@@ -43,6 +44,7 @@ benchmark() {
     ./count.sh "bluesky-${template}-${size}m" | tee "${OUTPUT_PREFIX}_bluesky-${template}-${size}m.count"
     #./query_results.sh "bluesky-${template}-${size}m" | tee "${OUTPUT_PREFIX}_bluesky-${template}-${size}m.query_results"
     ./benchmark.sh "bluesky-${template}-${size}m" "${OUTPUT_PREFIX}_bluesky-${template}-${size}m.results_runtime"
+    ./drop_tables.sh
 }
 
 case $choice in

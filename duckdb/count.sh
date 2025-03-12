@@ -9,9 +9,7 @@ fi
 # Arguments
 DATABASE_NAME="$1"
 TABLE_NAME="$2"
-DUCKDB_CMD="duckdb $DATABASE_NAME"
-
 
 # Fetch the count using duckDB
-$DUCKDB_CMD -c "select count() from '$TABLE_NAME';"
+duckdb ~/$DATABASE_NAME -c "select count() from '$TABLE_NAME';"
 
