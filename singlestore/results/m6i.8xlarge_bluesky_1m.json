@@ -1,0 +1,50 @@
+{
+  "system": "SingleStore",
+  "version": "5.7.32",
+  "os": "Ubuntu 24.04",
+  "date": "2025-03-14",
+  "machine": "m6i.8xlarge, 10000gib gp3",
+  "cluster_size": 1,
+  "comment": "",
+  "retains_structure": "yes",
+  "tags": [
+  ],
+  "dataset_size": 1000000,
+  "dataset_size_readable": "1m",
+  "num_loaded_documents": 1000000,
+  "data_compression": "auto",
+  "total_size": 275466582,
+  "total_size_readable": "275.35 MB",
+  "data_size": 275466582,
+  "data_size_readable": "275.35 MB",
+  "index_size": 0,
+  "index_size_readable": "0 MB",
+  "result": [
+    [0.206, 0.083, 0.098],
+    [0.615, 0.544, 0.452],
+    [0.366, 0.268, 0.149],
+    [0.259, 0.111, 0.106],
+    [0.324, 0.167, 0.171]
+  ],
+  "result_readable": [
+    "0.2 sec, 0.0 sec, 0.0 sec",
+    "0.6 sec, 0.5 sec, 0.4 sec",
+    "0.3 sec, 0.2 sec, 0.1 sec",
+    "0.2 sec, 0.1 sec, 0.1 sec",
+    "0.3 sec, 0.1 sec, 0.1 sec"
+  ],
+  "memory_usage": [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
+  ],
+  "memory_usage_readable": [
+    "null, null, null",
+    "null, null, null",
+    "null, null, null",
+    "null, null, null",
+    "null, null, null"
+  ]
+}
