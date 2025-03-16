@@ -33,7 +33,7 @@ echo "4) 1000m"
 echo "5) all"
 read -p "Enter the number corresponding to your choice: " choice
 
-# ./install.sh "${LICENSE_KEY}" "${ROOT_PASSWORD}"
+./install.sh "${LICENSE_KEY}" "${ROOT_PASSWORD}"
 
 benchmark() {
     local size=$1
