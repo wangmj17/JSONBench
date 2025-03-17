@@ -134,15 +134,15 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [x] [MongoDB](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#mongodb)
 - [x] [DuckDB](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#duckdb)
 - [x] [PostgreSQL](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#postgresql)
+- [x] VictoriaLogs
+- [x] SingleStore
 - [ ] Quickwit
 - [ ] Meilisearch
 - [ ] Sneller
 - [ ] Snowflake
 - [ ] Manticore Search
-- [ ] SingleStore
 - [ ] SurrealDB
 - [ ] OpenText Vertica
-- [x] VictoriaLogs
 - [ ] PartiQL
 - [ ] FishStore
 - [ ] FerretDB
