@@ -136,6 +136,7 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [x] [PostgreSQL](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#postgresql)
 - [x] VictoriaLogs
 - [x] SingleStore
+- [x] GreptimeDB
 - [ ] Quickwit
 - [ ] Meilisearch
 - [ ] Sneller
@@ -148,7 +149,6 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [ ] FerretDB
 - [ ] Apache Drill
 - [ ] GlareDB
-- [x] GreptimeDB
 
 ## Similar projects
 
