@@ -18,7 +18,7 @@ cat queries.sql | while read -r query; do
     echo "Result for query Q$QUERY_NUM:"
     echo
 
-    clickhouse-client --database="$DB_NAME" --format=PrettyCompactMonoBlock --query="$query" --progress 0
+    ./clickhouse client --database="$DB_NAME" --format=PrettyCompactMonoBlock --query="$query" --progress 0
 
     # Increment the query number
     QUERY_NUM=$((QUERY_NUM + 1))

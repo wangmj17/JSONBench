@@ -22,10 +22,10 @@ ERROR_LOG="$7"
 
 
 echo "Creating database $DB_NAME"
-clickhouse-client --query "CREATE DATABASE IF NOT EXISTS $DB_NAME"
+./clickhouse client --query "CREATE DATABASE IF NOT EXISTS $DB_NAME"
 
 echo "Executing DDL for database $DB_NAME"
-clickhouse-client --database="$DB_NAME" --enable_json_type=1 --multiquery < "$DDL_FILE"
+./clickhouse client --database="$DB_NAME" --enable_json_type=1 --multiquery < "$DDL_FILE"
 
 echo "Loading data for database $DB_NAME"
 ./load_data.sh "$DATA_DIRECTORY" "$DB_NAME" "$TABLE_NAME" "$NUM_FILES" "$SUCCESS_LOG" "$ERROR_LOG"

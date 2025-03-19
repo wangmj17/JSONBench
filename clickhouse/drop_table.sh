@@ -1,14 +1,9 @@
 #!/bin/bash
 
-# Check if the required arguments are provided
-if [[ $# -lt 2 ]]; then
-    echo "Usage: $0 <DB_NAME> <TABLE_NAME>"
-    exit 1
-fi
+echo "Stopping ClickHouse"
+pidof clickhouse && kill -9 `pidof clickhouse`
 
-DB_NAME="$1"
-TABLE_NAME="$2"
-
-echo "Dropping table: $DB_NAME.$TABLE_NAME"
-
-clickhouse-client --database="$DB_NAME" --query "DROP TABLE IF EXISTS $TABLE_NAME"
+# 'DROP TABLE' has a build-in safety mechanism that prevents users from dropping large tables. We hit that with large
+# numbers of ingested data. Instead, make our lifes easy and remove the persistence manually.
+echo "Dropping all data"
+rm -rf data/ metadata/ store/

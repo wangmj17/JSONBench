@@ -24,6 +24,6 @@ cat queries.sql | while read -r query; do
 
     # Execute the query multiple times
     for i in $(seq 1 $TRIES); do
-        clickhouse-client --database="$DB_NAME" --time --memory-usage --format=Null --query="$query" --progress 0
+        ./clickhouse client --database="$DB_NAME" --time --memory-usage --format=Null --query="$query" --progress 0
     done;
 done;
