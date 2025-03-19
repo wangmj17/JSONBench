@@ -18,7 +18,7 @@ cat queries.sql | while read -r query; do
     echo "Index usage for query Q$QUERY_NUM:"
     echo
 
-    clickhouse-client --database="$DB_NAME" --query="EXPLAIN indexes=1 $query"
+    ./clickhouse client --database="$DB_NAME" --query="EXPLAIN indexes=1 $query"
 
     # Increment the query number
     QUERY_NUM=$((QUERY_NUM + 1))

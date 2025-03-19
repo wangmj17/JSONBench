@@ -39,7 +39,7 @@ for file in $(ls "$DATA_DIRECTORY"/*.json.gz | head -n "$MAX_FILES"); do
     fi
 
     # Attempt the first import
-    clickhouse-client --query="INSERT INTO $DB_NAME.$TABLE_NAME SETTINGS min_insert_block_size_rows = 1_000_000, min_insert_block_size_bytes = 0 FORMAT JSONAsObject" < "$uncompressed_file"
+    ./clickhouse client --query="INSERT INTO $DB_NAME.$TABLE_NAME SETTINGS min_insert_block_size_rows = 1_000_000, min_insert_block_size_bytes = 0 FORMAT JSONAsObject" < "$uncompressed_file"
     first_attempt=$?
 
     # Check if the first import was successful
@@ -51,7 +51,7 @@ for file in $(ls "$DATA_DIRECTORY"/*.json.gz | head -n "$MAX_FILES"); do
 
         echo "Processing $file... again..."
         # Attempt the second import with a different command
-        clickhouse-client --query="INSERT INTO $DB_NAME.$TABLE_NAME SETTINGS min_insert_block_size_rows = 1_000_000, min_insert_block_size_bytes = 0, input_format_allow_errors_num = 1_000_000_000, input_format_allow_errors_ratio=1 FORMAT JSONAsObject" < "$uncompressed_file"
+        ./clickhouse client --query="INSERT INTO $DB_NAME.$TABLE_NAME SETTINGS min_insert_block_size_rows = 1_000_000, min_insert_block_size_bytes = 0, input_format_allow_errors_num = 1_000_000_000, input_format_allow_errors_ratio=1 FORMAT JSONAsObject" < "$uncompressed_file"
         second_attempt=$?
 
         # Check if the second import was successful
