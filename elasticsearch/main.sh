@@ -96,3 +96,5 @@ case $choice in
         benchmark 1 no_source_default_compression
         ;;
 esac
+
+./uninstall
