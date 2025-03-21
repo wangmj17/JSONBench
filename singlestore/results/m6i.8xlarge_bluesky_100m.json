@@ -26,6 +26,13 @@
     [34.688, 3.691, 3.702],
     [34.735, 4.934, 4.713]
   ],
+  "result_readable": [
+    "6.4 sec, 5.0 sec, 5.6 sec",
+    "37.5 sec, 25.2 sec, 25.0 sec",
+    "14.6 sec, 12.8 sec, 12.7 sec",
+    "34.6 sec, 3.6 sec, 3.7 sec",
+    "34.7 sec, 4.9 sec, 4.7 sec"
+  ],
   "memory_usage": [
     [null, null, null],
     [null, null, null],
