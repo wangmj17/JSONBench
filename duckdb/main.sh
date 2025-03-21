@@ -33,6 +33,7 @@ if [ "$CHOICE" = "ask" ]; then
 fi
 
 ./install.sh
+export PATH='/home/ubuntu/.duckdb/cli/latest':$PATH
 
 benchmark() {
     local size=$1
@@ -71,3 +72,6 @@ case $choice in
         benchmark 1
         ;;
 esac
+
+
+./uninstall.sh

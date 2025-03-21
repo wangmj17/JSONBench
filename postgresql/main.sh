@@ -54,8 +54,6 @@ benchmark() {
     ./drop_tables.sh "bluesky_${size}m_${compression}"
 }
 
-./uninstall
-
 case $choice in
     2)
         benchmark 10 lz4
@@ -84,3 +82,5 @@ case $choice in
         benchmark 1 pglz
         ;;
 esac
+
+./uninstall
