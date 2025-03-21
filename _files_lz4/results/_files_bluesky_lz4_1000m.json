@@ -9,7 +9,6 @@
   "tags": [
   ],
   "dataset_size": 1000000000,
-  "dataset_size_readable": "1000m",
   "data_compression": "lz4",
   "total_size": 206562787263,
   "total_size_readable": "206.56 GB"
