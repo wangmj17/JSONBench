@@ -13,7 +13,6 @@
   "num_loaded_documents": 1000000,
   "data_compression": "pglz",
   "total_size": 731168768,
-  "total_size_readable": "731.17 MB",
   "data_size": 586825728,
   "index_size": 144343040,
   "result": [

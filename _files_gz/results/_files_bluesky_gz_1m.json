@@ -10,6 +10,5 @@
   ],
   "dataset_size": 1000000,
   "data_compression": "gz",
-  "total_size": 135176827,
-  "total_size_readable": "135.17 MB"
+  "total_size": 135176827
 }

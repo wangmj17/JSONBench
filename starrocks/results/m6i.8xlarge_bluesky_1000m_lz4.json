@@ -13,7 +13,6 @@
   "num_loaded_documents": null,
   "data_compression": "lz4",
   "total_size": null,
-  "total_size_readable": "ingestion failed",
   "result": [
     [null, null, null],
     [null, null, null],

@@ -13,7 +13,6 @@
   "num_loaded_documents": 100000000,
   "data_compression": "lz4",
   "total_size": 19182000000,
-  "total_size_readable": "19.182 GB",
   "result": [
     [0.25,0.17,0.17],
     [8.13,4.33,3.82],

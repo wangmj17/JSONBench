@@ -13,7 +13,6 @@
   "num_loaded_documents": 99999968,
   "data_compression": "zstd",
   "total_size": 9684754080,
-  "total_size_readable": "9.68 GB",
   "data_size": 9662584921,
   "index_size": 22169088,
   "result": [
