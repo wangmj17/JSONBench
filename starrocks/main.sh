@@ -79,3 +79,5 @@ case $choice in
         benchmark 1 zstd
         ;;
 esac
+
+./uninstall.sh

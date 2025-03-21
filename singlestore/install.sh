@@ -10,6 +10,10 @@ fi
 LICENSE_KEY="$1"
 ROOT_PASSWORD="$2"
 
+sudo snap install docker
+sudo apt-get update
+sudo apt-get install -y mysql-client
+
 docker run -i --init \
     --name singlestore-ciab \
     -e LICENSE_KEY="${LICENSE_KEY}" \
