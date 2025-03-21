@@ -17,7 +17,6 @@
   "data_size": 162623843,
   "data_size_readable": "162.62 MB",
   "index_size": 111579,
-  "index_size_readable": "111.58 KB",
   "result": [
     [0.009, 0.004, 0.004],
     [0.036, 0.023, 0.024],
