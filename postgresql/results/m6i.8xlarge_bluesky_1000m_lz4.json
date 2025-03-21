@@ -25,12 +25,5 @@
     [4222.61,4212.91,4208.16],
     [4890.82,4873.02,4871.11],
     [4900.32,4883.62,4873.68]
-  ],
-  "result_readable": [
-    "1 hr 4 min 23.35 sec, 1 hr 4 min 3.05 sec, 1 hr 4 min 3.04 sec",
-    "9 hr 2 min 33.30 sec, 9 hr 2 min 34.50 sec, 9 hr 2 min 33.90 sec",
-    "1 hr 10 min 22.61 sec, 1 hr 10 min 12.91 sec, 1 hr 10 min 8.16 sec",
-    "1 hr 21 min 30.82 sec, 1 hr 21 min 13.02 sec, 1 hr 21 min 11.11 sec",
-    "1 hr 21 min 40.32 sec, 1 hr 21 min 23.62 sec, 1 hr 21 min 13.68 sec"
   ]
 }
