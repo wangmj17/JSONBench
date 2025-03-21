@@ -13,7 +13,6 @@
   "num_loaded_documents": 1000000,
   "data_compression": "snappy",
   "total_size": 279212032,
-  "total_size_readable": "279.21 MB",
   "data_size": 253288448,
   "index_size": 25923584,
   "result": [
