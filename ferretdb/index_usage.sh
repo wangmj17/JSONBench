@@ -48,7 +48,7 @@ cat "$QUERY_FILE" | while read -r query; do
     mongosh --quiet --eval "
         const db = db.getSiblingDB('$DB_NAME');
         const result = eval(\"$ESCAPED_QUERY\");
-        printjson(result.stages[0].\$cursor.queryPlanner.winningPlan);
+        printjson(result);
     "
 
     # Increment the query number

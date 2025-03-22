@@ -1,8 +1,17 @@
 #!/bin/bash
 
-# https://docs.ferretdb.io/installation/ferretdb/deb/
 
-sudo snap install docker
+# install docker
+# sudo snap install docker
+
+# install mongosh
+# sudo sudo apt-get install gnupg curl
+#curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
+#   sudo gpg --dearmor --yes -o /usr/share/keyrings/mongodb-server-8.0.gpg
+#echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+#sudo apt-get update
+#sudo apt-get install -y mongodb-org
+
 
 # Run postgresql with documentdb as storage extension
 docker run -d --name postgres \
@@ -20,5 +29,6 @@ docker run -d --name ferretdb \
   --link postgres \
   -p 27017:27017 \
   -e FERRETDB_POSTGRESQL_URL=postgres://username:password@postgres:5432/postgres \
+  -e FERRETDB_AUTH=false \
   ghcr.io/ferretdb/ferretdb:2.0.0
 
