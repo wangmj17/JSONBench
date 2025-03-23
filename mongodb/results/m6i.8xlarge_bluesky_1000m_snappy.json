@@ -21,12 +21,5 @@
     [1242.34,1229.8,1235.88],
     [161.845,162.1,162.285],
     [166.271,166.134,165.7]
-  ],
-  "result_readable": [
-    "16 min 27.16 sec, 16 min 24.44 sec, 16 min 28.00 sec",
-    "5 hr 52 min 57.10 sec, 5 hr 52 min 10.00 sec, 5 hr 58 min 40.60 sec",
-    "20 min 42.34 sec, 20 min 29.80 sec, 20 min 35.88 sec",
-    "2 min 41.84 sec, 2 min 42.10 sec, 2 min 42.28 sec",
-    "2 min 46.27 sec, 2 min 46.13 sec, 2 min 45.70 sec"
   ]
 }
