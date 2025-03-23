@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-# install docker
 sudo snap install docker
 
 sudo sudo apt-get install gnupg curl
@@ -11,8 +9,7 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gp
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 
-
-# Run postgresql with documentdb as storage extension
+# Run PostgreSQL with DocumentDB as storage extension
 docker run -d --name postgres \
   --platform linux/amd64 \
   --restart on-failure \
@@ -23,7 +20,7 @@ docker run -d --name postgres \
   ghcr.io/ferretdb/postgres-documentdb:17-0.102.0-ferretdb-2.0.0 \
   -c enable_indexscan=on -c enable_indexonlyscan=on
 
-# Run ferretdb
+# Run FerretDB
 docker run -d --name ferretdb \
   --restart on-failure \
   --link postgres \
@@ -31,4 +28,3 @@ docker run -d --name ferretdb \
   -e FERRETDB_POSTGRESQL_URL=postgres://username:password@postgres:5432/postgres \
   -e FERRETDB_AUTH=false \
   ghcr.io/ferretdb/ferretdb:2.0.0
-
