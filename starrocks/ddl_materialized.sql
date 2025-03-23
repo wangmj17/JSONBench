@@ -8,5 +8,5 @@ CREATE TABLE bluesky (
     `collection` VARCHAR(255) AS get_json_string(data, '$.commit.collection'),
     `did` VARCHAR(255) AS get_json_string(data, '$.did'),
     `time_us` BIGINT AS get_json_int(data, '$.time_us')
-) ENGINE=OLAP
+)
 ORDER BY(`kind`, `operation`, `collection`, `did`, `time_us`);
