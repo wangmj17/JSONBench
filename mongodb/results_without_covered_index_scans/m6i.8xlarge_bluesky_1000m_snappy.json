@@ -10,15 +10,11 @@
   "tags": [
   ],
   "dataset_size": 1000000000,
-  "dataset_size_readable": "1000m",
   "num_loaded_documents": 893632990,
   "data_compression": "snappy",
   "total_size": 245411815424,
-  "total_size_readable": "245.41 GB",
   "data_size": 221332566016,
-  "data_size_readable": "221.33 GB",
   "index_size": 24079249408,
-  "index_size_readable": "24.08 GB",
   "result": [
     [1974.18,1956.12,1957.9],
     [45189.1,43107.3,42923.6],

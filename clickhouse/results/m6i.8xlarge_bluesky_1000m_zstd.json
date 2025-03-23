@@ -10,15 +10,11 @@
   "tags": [
   ],
   "dataset_size": 1000000000,
-  "dataset_size_readable": "1000m",
   "num_loaded_documents": 999999258,
   "data_compression": "zstd",
   "total_size": 99230044699,
-  "total_size_readable": "99.23 GB",
   "data_size": 98355025153,
-  "data_size_readable": "98.36 GB",
   "index_size": 875019321,
-  "index_size_readable": "875.02 MB",
   "result": [
     [0.405, 0.395, 0.394],
     [11.854, 5.632, 5.749],
@@ -39,12 +35,5 @@
     [147631790, 139732345, 139867057],
     [2537597752, 2638168515, 2609289232],
     [2796756189, 2927194160, 2788741563]
-  ],
-  "memory_usage_readable": [
-    "2.78 MB, 1.36 MB, 783.68 KB",
-    "4.82 GB, 4.87 GB, 4.92 GB",
-    "147.63 MB, 139.73 MB, 139.87 MB",
-    "2.54 GB, 2.64 GB, 2.61 GB",
-    "2.80 GB, 2.93 GB, 2.79 GB"
   ]
 }

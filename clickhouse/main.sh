@@ -1,14 +1,17 @@
 #!/bin/bash
 
-# Default data directory
+DEFAULT_CHOICE=ask
 DEFAULT_DATA_DIRECTORY=~/data/bluesky
 
+# Allow the user to optionally provide the scale factor ("choice") as an argument
+CHOICE="${1:-$DEFAULT_CHOICE}"
+
 # Allow the user to optionally provide the data directory as an argument
-DATA_DIRECTORY="${1:-$DEFAULT_DATA_DIRECTORY}"
+DATA_DIRECTORY="${2:-$DEFAULT_DATA_DIRECTORY}"
 
 # Define success and error log files
-SUCCESS_LOG="${2:-success.log}"
-ERROR_LOG="${3:-error.log}"
+SUCCESS_LOG="${3:-success.log}"
+ERROR_LOG="${4:-error.log}"
 
 # Define prefix for output files
 OUTPUT_PREFIX="${4:-_m6i.8xlarge}"
@@ -19,13 +22,15 @@ if [[ ! -d "$DATA_DIRECTORY" ]]; then
     exit 1
 fi
 
-echo "Select the dataset size to benchmark:"
-echo "1) 1m (default)"
-echo "2) 10m"
-echo "3) 100m"
-echo "4) 1000m"
-echo "5) all"
-read -p "Enter the number corresponding to your choice: " choice
+if [ "$CHOICE" = "ask" ]; then
+    echo "Select the dataset size to benchmark:"
+    echo "1) 1m (default)"
+    echo "2) 10m"
+    echo "3) 100m"
+    echo "4) 1000m"
+    echo "5) all"
+    read -p "Enter the number corresponding to your choice: " CHOICE
+fi
 
 ./install.sh
 
@@ -51,7 +56,7 @@ benchmark() {
     ./drop_table.sh # also stops ClickHouse
 }
 
-case $choice in
+case $CHOICE in
     2)
         benchmark 10 lz4
         benchmark 10 zstd

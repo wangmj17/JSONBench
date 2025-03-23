@@ -10,11 +10,9 @@
   "tags": [
   ],
   "dataset_size": 100000000,
-  "dataset_size_readable": "100m",
   "num_loaded_documents": 99999947,
   "data_compression": "zstd",
   "total_size": 21268479403,
-  "total_size_readable": "21.2 GB",
   "result": [
     [2.532,2.536,2.486],
     [23.194,22.932,23.188],

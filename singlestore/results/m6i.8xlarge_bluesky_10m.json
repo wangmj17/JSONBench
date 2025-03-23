@@ -10,15 +10,11 @@
   "tags": [
   ],
   "dataset_size": 10000000,
-  "dataset_size_readable": "10m",
   "num_loaded_documents": 7000000,
   "data_compression": "auto",
   "total_size": 1943790266,
-  "total_size_readable": "1.94 GB",
   "data_size": 1943790266,
-  "data_size_readable": "1.94 GB",
   "index_size": 0,
-  "index_size_readable": "0 MB",
   "result": [
     [0.658, 0.444, 0.494],
     [2.831, 2.647, 2.836],
@@ -39,12 +35,5 @@
     [null, null, null],
     [null, null, null],
     [null, null, null]
-  ],
-  "memory_usage_readable": [
-    "null, null, null",
-    "null, null, null",
-    "null, null, null",
-    "null, null, null",
-    "null, null, null"
   ]
 }

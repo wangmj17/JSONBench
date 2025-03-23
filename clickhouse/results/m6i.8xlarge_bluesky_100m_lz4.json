@@ -10,15 +10,11 @@
   "tags": [
   ],
   "dataset_size": 100000000,
-  "dataset_size_readable": "100m",
   "num_loaded_documents": 99999968,
   "data_compression": "lz4",
   "total_size": 15793562624,
-  "total_size_readable": "15.79 GB",
   "data_size": 15771339413,
-  "data_size_readable": "15.77 GB",
   "index_size": 222231402,
-  "index_size_readable": " 22.22 MB",
   "result": [
     [0.054, 0.041, 0.041],
     [2.344, 0.724, 0.724],
@@ -39,12 +35,5 @@
     [143081365, 142096261, 142096261],
     [595252210, 568894822, 585137315],
     [657713321, 690210788, 697155477]
-  ],
-  "memory_usage_readable": [
-    "713.20 KB, 1.51 MB, 859.32 KB",
-    "1.04 GB, 1.06 GB, 1.07 GB",
-    "143.08 MB, 142.10 MB, 142.10 MB",
-    "595.25 MB, 568.89 MB, 585.14 MB",
-    "657.71 MB, 690.21 MB, 697.16 MB"
   ]
 }

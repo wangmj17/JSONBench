@@ -10,15 +10,11 @@
   "tags": [
   ],
   "dataset_size": 1000000000,
-  "dataset_size_readable": "1000m",
   "num_loaded_documents": 804000000,
   "data_compression": "lz4",
   "total_size": 654739636224,
-  "total_size_readable": "654.74 GB",
   "data_size": 506726694912,
-  "data_size_readable": "506.73 GB",
   "index_size": 147981623296,
-  "index_size_readable": "147.98 GB",
   "result": [
     [3863.35,3843.05,3843.04],
     [32553.3,32554.5,32553.9],
