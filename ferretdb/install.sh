@@ -20,7 +20,8 @@ docker run -d --name postgres \
   -e POSTGRES_PASSWORD=password \
   -e POSTGRES_DB=postgres \
   -v pgdata:/var/lib/postgresql/data \
-  ghcr.io/ferretdb/postgres-documentdb:17-0.102.0-ferretdb-2.0.0
+  ghcr.io/ferretdb/postgres-documentdb:17-0.102.0-ferretdb-2.0.0 \
+  -c enable_indexscan=on -c enable_indexonlyscan=on
 
 # Run ferretdb
 docker run -d --name ferretdb \
