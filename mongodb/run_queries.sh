@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# If you change something in this file, please also change it in ferretdb/run_queries.sh as well
+
 # Check if the required arguments are provided
 if [[ $# -lt 1 ]]; then
     echo "Usage: $0 <DB_NAME>"
