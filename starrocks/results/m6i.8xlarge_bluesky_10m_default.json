@@ -1,8 +1,8 @@
 {
-  "system": "Starrocks (lz4)",
+  "system": "Starrocks (default)",
   "version": "3.4.0-e94580b",
   "os": "Ubuntu 24.04",
-  "date": "2025-01-13",
+  "date": "2025-03-24",
   "machine": "m6i.8xlarge, 10000gib gp3",
   "cluster_size": 1,
   "comment": "",
@@ -10,14 +10,14 @@
   "tags": [
   ],
   "dataset_size": 10000000,
-  "num_loaded_documents": 9999994,
+  "num_loaded_documents": 7000000,
   "data_compression": "lz4",
-  "total_size": 1967000000,
+  "total_size": 824028000,
   "result": [
-    [0.11,0.10,0.10],
-    [0.45,0.40,0.42],
-    [0.58,0.45,0.50],
-    [0.57,0.62,0.61],
-    [0.69,0.60,0.55]
+    [0.03,0.02,0.03],
+    [0.52,0.50,0.48],
+    [0.25,0.25,0.18],
+    [0.11,0.11,0.10],
+    [0.11,0.12,0.12]
   ]
 }
