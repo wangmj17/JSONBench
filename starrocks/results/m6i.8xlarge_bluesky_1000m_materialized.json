@@ -1,8 +1,8 @@
 {
-  "system": "Starrocks (zstd)",
+  "system": "Starrocks (materialized)",
   "version": "3.4.0-e94580b",
   "os": "Ubuntu 24.04",
-  "date": "2025-01-13",
+  "date": "2025-03-24",
   "machine": "m6i.8xlarge, 10000gib gp3",
   "cluster_size": 1,
   "comment": "",
@@ -10,14 +10,14 @@
   "tags": [
   ],
   "dataset_size": 1000000000,
-  "num_loaded_documents": null,
+  "num_loaded_documents": 997000000,
   "data_compression": "zstd",
-  "total_size": null,
+  "total_size": 191541000000,
   "result": [
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
-    [null, null, null],
+    [1.75,1.56,1.54],
+    [49.75,41.61,31.38],
+    [12.90,12.58,5.76],
+    [5.64,6.21,6.03],
     [null, null, null]
   ]
 }
