@@ -51,7 +51,7 @@ benchmark() {
     ./drop_table.sh "bluesky_${size}m_${suffix}" bluesky
 }
 
-case $choice in
+case $CHOICE in
     2)
         benchmark 10 default
         benchmark 10 materialized
