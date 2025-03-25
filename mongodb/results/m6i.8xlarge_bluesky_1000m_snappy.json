@@ -11,7 +11,6 @@
   ],
   "dataset_size": 1000000000,
   "num_loaded_documents": 893632990,
-  "data_compression": "snappy",
   "total_size": 248580009984,
   "data_size": 221332566016,
   "index_size": 27247443968,

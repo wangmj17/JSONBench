@@ -9,6 +9,5 @@
   "tags": [
   ],
   "dataset_size": 100000000,
-  "data_compression": "gz",
   "total_size": 13372936569
 }

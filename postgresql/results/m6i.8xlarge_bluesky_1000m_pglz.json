@@ -11,7 +11,6 @@
   ],
   "dataset_size": 1000000000,
   "num_loaded_documents": 804000000,
-  "data_compression": "pglz",
   "total_size": 660828643328,
   "data_size": 512573440000,
   "index_size": 148222607360,

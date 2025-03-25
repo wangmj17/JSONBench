@@ -11,7 +11,6 @@
   ],
   "dataset_size": 1000000000,
   "num_loaded_documents": 997000000,
-  "data_compression": "zstd",
   "total_size": 191541000000,
   "result": [
     [1.75,1.56,1.54],
