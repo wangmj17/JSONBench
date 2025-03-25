@@ -1,5 +1,5 @@
 {
-  "system": "Elasticsearch (best compression)",
+  "system": "Elasticsearch (zstd)",
   "version": "8.17.0",
   "os": "Ubuntu 24.04",
   "date": "2025-01-14",
@@ -11,7 +11,6 @@
   ],
   "dataset_size": 100000000,
   "num_loaded_documents": 99999947,
-  "data_compression": "zstd",
   "total_size": 34182479705,
   "result": [
     [2.765,2.718,2.799],

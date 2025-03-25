@@ -11,7 +11,6 @@
   ],
   "dataset_size": 1000000000,
   "num_loaded_documents": 893632990,
-  "data_compression": "zstd",
   "total_size": 155395039232,
   "data_size": 130998910976,
   "index_size": 24396128256,

@@ -1,5 +1,5 @@
 {
-  "system": "Elasticsearch (default)",
+  "system": "Elasticsearch (lz4)",
   "version": "8.17.0",
   "os": "Ubuntu 24.04",
   "date": "2025-01-14",
@@ -11,7 +11,6 @@
   ],
   "dataset_size": 10000000,
   "num_loaded_documents": 9999998,
-  "data_compression": "lz4",
   "total_size": 4600428060,
   "result": [
     [0.266,0.274,0.266],

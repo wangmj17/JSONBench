@@ -11,7 +11,6 @@
   ],
   "dataset_size": 1000000,
   "num_loaded_documents": 1000000,
-  "data_compression": "auto",
   "total_size": 484704256,
   "result": [
     [2.797,0.230,0.228],

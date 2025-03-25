@@ -11,7 +11,6 @@
   ],
   "dataset_size": 1000000,
   "num_loaded_documents": 1000000,
-  "data_compression": "lz4",
   "total_size": 1,
   "result": [
     [0.05,0.05,0.06],
