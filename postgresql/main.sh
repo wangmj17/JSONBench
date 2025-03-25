@@ -54,7 +54,7 @@ benchmark() {
     ./drop_tables.sh "bluesky_${size}m_${compression}"
 }
 
-case $choice in
+case $CHOICE in
     2)
         benchmark 10 lz4
         benchmark 10 pglz

@@ -53,7 +53,7 @@ benchmark() {
     ./drop_tables.sh
 }
 
-case $choice in
+case $CHOICE in
     2)
         benchmark 10
         ;;
