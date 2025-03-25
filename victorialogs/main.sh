@@ -54,7 +54,7 @@ benchmark() {
     ./drop_tables.sh # also stops VictoriaLogs
 }
 
-case $choice in
+case $CHOICE in
     2)
         benchmark 10
         ;;

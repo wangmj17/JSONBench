@@ -52,7 +52,7 @@ benchmark() {
     ./drop_table.sh "db.duckdb_${size}"
 }
 
-case $choice in
+case $CHOICE in
     2)
         benchmark 10
         ;;

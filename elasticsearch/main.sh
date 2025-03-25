@@ -52,7 +52,7 @@ benchmark() {
     ./drop_tables.sh
 }
 
-case $choice in
+case $CHOICE in
     2)
         benchmark 10 no_source_best_compression
         benchmark 10 source_best_compression

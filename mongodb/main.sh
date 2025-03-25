@@ -54,7 +54,7 @@ benchmark() {
     ./drop_table.sh "bluesky_${size}m_${compression}"
 }
 
-case $choice in
+case $CHOICE in
     2)
         benchmark 10 snappy
         benchmark 10 zstd
