@@ -137,6 +137,7 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [x] VictoriaLogs
 - [x] SingleStore
 - [x] GreptimeDB
+- [x] FerretDB
 - [ ] Quickwit
 - [ ] Meilisearch
 - [ ] Sneller
@@ -146,7 +147,6 @@ While the main benchmark uses a specific machine configuration for reproducibili
 - [ ] OpenText Vertica
 - [ ] PartiQL
 - [ ] FishStore
-- [ ] FerretDB
 - [ ] Apache Drill
 - [ ] GlareDB
 

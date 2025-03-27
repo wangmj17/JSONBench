@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# If you change something in this file, please also change ferretdb/run_queries.sh
+# If you change something in this file, please also change mongodb/run_queries.sh
 
 # Check if the required arguments are provided
 if [[ $# -lt 1 ]]; then
@@ -23,30 +23,7 @@ if [[ ! -f "$QUERY_FILE" ]]; then
     exit 1
 fi
 
-# Set the internalQueryMaxAddToSetBytes parameter to 1 GB
-echo "Setting internalQueryMaxAddToSetBytes to 1 GB..."
-mongosh --quiet --eval "
-    const result = db.adminCommand({ setParameter: 1, internalQueryMaxAddToSetBytes: 1073741824 });
-    if (result.ok !== 1) {
-        print('Failed to set internalQueryMaxAddToSetBytes: ' + JSON.stringify(result));
-        quit(1);
-    } else {
-        print('Successfully set internalQueryMaxAddToSetBytes to 1 GB');
-    }
-"
-
-# Set the internalQueryPlannerGenerateCoveredWholeIndexScans parameter to true
-echo "Setting internalQueryPlannerGenerateCoveredWholeIndexScans to true..."
-mongosh --quiet --eval "
-    const result = db.adminCommand({ setParameter: 1, internalQueryPlannerGenerateCoveredWholeIndexScans: true });
-    if (result.ok !== 1) {
-        print('Failed to set internalQueryPlannerGenerateCoveredWholeIndexScans: ' + JSON.stringify(result));
-        quit(1);
-    } else {
-        print('Successfully set internalQueryPlannerGenerateCoveredWholeIndexScans to true');
-    }
-"
-
+# If you change something in this file, please also change it in mongodb/index_usage.sh as well
 # Read and execute each query
 cat "$QUERY_FILE" | while read -r query; do
 

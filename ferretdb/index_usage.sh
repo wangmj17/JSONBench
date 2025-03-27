@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# If you change something in this file, please also change it in ferretdb/index_usage.sh as well
+# If you change something in this file, please also change mongodb/index_usage.sh
 
 # Check if the required arguments are provided
 if [[ $# -lt 1 ]]; then
@@ -22,18 +22,6 @@ if [[ ! -f "$QUERY_FILE" ]]; then
     exit 1
 fi
 
-# Set the internalQueryPlannerGenerateCoveredWholeIndexScans parameter to true
-echo "Setting internalQueryPlannerGenerateCoveredWholeIndexScans to true..."
-mongosh --quiet --eval "
-    const result = db.adminCommand({ setParameter: 1, internalQueryPlannerGenerateCoveredWholeIndexScans: true });
-    if (result.ok !== 1) {
-        print('Failed to set internalQueryPlannerGenerateCoveredWholeIndexScans: ' + JSON.stringify(result));
-        quit(1);
-    } else {
-        print('Successfully set internalQueryPlannerGenerateCoveredWholeIndexScans to true');
-    }
-"
-
 cat "$QUERY_FILE" | while read -r query; do
 
     # Print the query number
@@ -47,10 +35,11 @@ cat "$QUERY_FILE" | while read -r query; do
     # Escape the modified query for safe passing to mongosh
     ESCAPED_QUERY=$(echo "$MODIFIED_QUERY" | sed 's/\([\"\\]\)/\\\1/g' | sed 's/\$/\\$/g')
 
+    # Due to a difference in query planner outputs from postgresql and mongodb, entire json is printed here.
     mongosh --quiet --eval "
         const db = db.getSiblingDB('$DB_NAME');
         const result = eval(\"$ESCAPED_QUERY\");
-        printjson(result.stages[0].\$cursor.queryPlanner.winningPlan);
+        printjson(result);
     "
 
     # Increment the query number
