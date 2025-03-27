@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# If you change something in this file, please also change it in ferretdb/run_queries.sh as well
+# If you change something in this file, please also change ferretdb/run_queries.sh
 
 # Check if the required arguments are provided
 if [[ $# -lt 1 ]]; then

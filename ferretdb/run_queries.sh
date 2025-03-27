@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# If you change something in this file other than that, please also change it in mongodb/run_queries.sh as well
-
+# If you change something in this file, please also change mongodb/run_queries.sh
 
 # Check if the required arguments are provided
 if [[ $# -lt 1 ]]; then
