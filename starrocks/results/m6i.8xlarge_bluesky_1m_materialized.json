@@ -4,7 +4,6 @@
   "os": "Ubuntu 24.04",
   "date": "2025-03-24",
   "machine": "m6i.8xlarge, 10000gib gp3",
-  "cluster_size": 1,
   "comment": "",
   "retains_structure": "yes",
   "tags": [
