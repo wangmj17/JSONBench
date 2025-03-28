@@ -32,8 +32,8 @@ Physical query plan for query Q1:
 ┌─────────────┴─────────────┐
 │         SEQ_SCAN          │
 │    ────────────────────   │
-│          bluesky          │
-│                           │
+│       Table: bluesky      │
+│   Type: Sequential Scan   │
 │       Projections: j      │
 │                           │
 │      ~974400000 Rows      │
@@ -84,8 +84,8 @@ Physical query plan for query Q2:
 ┌─────────────┴─────────────┐
 │         SEQ_SCAN          │
 │    ────────────────────   │
-│          bluesky          │
-│                           │
+│       Table: bluesky      │
+│   Type: Sequential Scan   │
 │       Projections: j      │
 │                           │
 │      ~974400000 Rows      │
@@ -103,11 +103,11 @@ Physical query plan for query Q3:
 │          ORDER_BY         │
 │    ────────────────────   │
 │ "hour"(to_timestamp((CAST(│
-│ (bluesky.j ->> '$.time_us'│
-│ ) AS BIGINT) / 1000000))) │
-│             ASC           │
-│  (bluesky.j ->> '$.commit │
-│     .collection') ASC     │
+│ (db.main.bluesky.j ->> '$ │
+│  .time_us') AS BIGINT) /  │
+│       1000000))) ASC      │
+│ (db.main.bluesky.j ->> '$ │
+│  .commit.collection') ASC │
 └─────────────┬─────────────┘
 ┌─────────────┴─────────────┐
 │       HASH_GROUP_BY       │
@@ -146,8 +146,8 @@ Physical query plan for query Q3:
 ┌─────────────┴─────────────┐
 │         SEQ_SCAN          │
 │    ────────────────────   │
-│          bluesky          │
-│                           │
+│       Table: bluesky      │
+│   Type: Sequential Scan   │
 │       Projections: j      │
 │                           │
 │      ~974400000 Rows      │
@@ -167,10 +167,10 @@ Physical query plan for query Q4:
 │           Top: 3          │
 │                           │
 │         Order By:         │
-│  to_timestamp((CAST(min(  │
-│ (bluesky.j ->> '$.time_us'│
-│ )) AS BIGINT) / 1000000)) │
-│             ASC           │
+│ to_timestamp((CAST(min((db│
+│   .main.bluesky.j ->> '$  │
+│  .time_us')) AS BIGINT) / │
+│        1000000)) ASC      │
 └─────────────┬─────────────┘
 ┌─────────────┴─────────────┐
 │         PROJECTION        │
@@ -211,8 +211,8 @@ Physical query plan for query Q4:
 ┌─────────────┴─────────────┐
 │         SEQ_SCAN          │
 │    ────────────────────   │
-│          bluesky          │
-│                           │
+│       Table: bluesky      │
+│   Type: Sequential Scan   │
 │       Projections: j      │
 │                           │
 │      ~974400000 Rows      │
@@ -234,12 +234,12 @@ Physical query plan for query Q5:
 │         Order By:         │
 │ date_diff('milliseconds', │
 │   to_timestamp((CAST(min( │
-│ (bluesky.j ->> '$.time_us'│
-│ )) AS BIGINT) / 1000000)),│
-│   to_timestamp((CAST(max( │
-│ (bluesky.j ->> '$.time_us'│
-│ )) AS BIGINT) / 1000000)))│
-│            DESC           │
+│ (db.main.bluesky.j ->> '$ │
+│  .time_us')) AS BIGINT) / │
+│  1000000)), to_timestamp( │
+│ (CAST(max((db.main.bluesky│
+│  .j ->> '$.time_us')) AS  │
+│  BIGINT) / 1000000))) DESC│
 └─────────────┬─────────────┘
 ┌─────────────┴─────────────┐
 │         PROJECTION        │
@@ -292,8 +292,8 @@ Physical query plan for query Q5:
 ┌─────────────┴─────────────┐
 │         SEQ_SCAN          │
 │    ────────────────────   │
-│          bluesky          │
-│                           │
+│       Table: bluesky      │
+│   Type: Sequential Scan   │
 │       Projections: j      │
 │                           │
 │      ~974400000 Rows      │
