@@ -1,3 +1,5 @@
+Setting internalQueryPlannerGenerateCoveredWholeIndexScans to true...
+Successfully set internalQueryPlannerGenerateCoveredWholeIndexScans to true
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q1:
 
@@ -58,7 +60,7 @@ Index usage for query Q1:
       '[3] project [s9 = traverseP(s8, lambda(l2.0) { getField(move(l2.0), "collection") }, 1)] \n' +
       '[1] project [s8 = getField(s7, "commit")] \n' +
       '[1] project [s7 = newObj("kind", s1, "commit", newObj("operation", s2, "collection", s3), "did", s4, "time_us", s5)] \n' +
-      '[1] ixseek KS(0A0A0A0A0A0104) KS(F0F0F0F0F0FE04) none s6 none none lowPriority [s1 = 0, s2 = 1, s3 = 2, s4 = 3, s5 = 4] @"7830a02a-60b7-4aeb-984a-20eeb2339869" @"kind_1_commit.operation_1_commit.collection_1_did_1_time_us_1" true '
+      '[1] ixseek KS(0A0A0A0A0A0104) KS(F0F0F0F0F0FE04) none s6 none none lowPriority [s1 = 0, s2 = 1, s3 = 2, s4 = 3, s5 = 4] @"fa8d99bb-47af-4739-ba8a-5a70e35271a1" @"kind_1_commit.operation_1_commit.collection_1_did_1_time_us_1" true '
   }
 }
 ------------------------------------------------------------------------------------------------------------------------
@@ -122,7 +124,7 @@ Index usage for query Q2:
       '[1] project [s10 = getField(s9, "commit")] \n' +
       '[1] project [s9 = newObj("kind", s1, "commit", newObj("operation", s2, "collection", s3), "did", s4, "time_us", s5)] \n' +
       '[1] cfilter {(exists(s6) && exists(s7))} \n' +
-      '[1] ixseek s6 s7 none s8 none none [s1 = 0, s2 = 1, s3 = 2, s4 = 3, s5 = 4] @"7830a02a-60b7-4aeb-984a-20eeb2339869" @"kind_1_commit.operation_1_commit.collection_1_did_1_time_us_1" true '
+      '[1] ixseek s6 s7 none s8 none none [s1 = 0, s2 = 1, s3 = 2, s4 = 3, s5 = 4] @"fa8d99bb-47af-4739-ba8a-5a70e35271a1" @"kind_1_commit.operation_1_commit.collection_1_did_1_time_us_1" true '
   }
 }
 ------------------------------------------------------------------------------------------------------------------------
