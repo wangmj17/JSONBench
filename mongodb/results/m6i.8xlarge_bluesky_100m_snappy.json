@@ -1,6 +1,6 @@
 {
   "system": "MongoDB (snappy, covered index)",
-  "version": "8.0.3",
+  "version": "8.0.6",
   "os": "Ubuntu 24.04",
   "date": "2025-01-13",
   "machine": "m6i.8xlarge, 10000gib gp3",
