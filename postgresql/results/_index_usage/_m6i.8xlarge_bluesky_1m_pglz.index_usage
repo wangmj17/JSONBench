@@ -1,26 +1,26 @@
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q1:
 
- Sort  (cost=80902.04..80902.07 rows=13 width=40)
+ Sort  (cost=80911.10..80911.13 rows=13 width=40)
    Sort Key: (count(*)) DESC
-   ->  Finalize GroupAggregate  (cost=80898.44..80901.80 rows=13 width=40)
+   ->  Finalize GroupAggregate  (cost=80907.50..80910.86 rows=13 width=40)
          Group Key: (((data -> 'commit'::text) ->> 'collection'::text))
-         ->  Gather Merge  (cost=80898.44..80901.47 rows=26 width=40)
+         ->  Gather Merge  (cost=80907.50..80910.53 rows=26 width=40)
                Workers Planned: 2
-               ->  Sort  (cost=79898.41..79898.45 rows=13 width=40)
+               ->  Sort  (cost=79907.48..79907.51 rows=13 width=40)
                      Sort Key: (((data -> 'commit'::text) ->> 'collection'::text))
-                     ->  Partial HashAggregate  (cost=79897.98..79898.17 rows=13 width=40)
+                     ->  Partial HashAggregate  (cost=79907.04..79907.24 rows=13 width=40)
                            Group Key: ((data -> 'commit'::text) ->> 'collection'::text)
-                           ->  Parallel Seq Scan on bluesky  (cost=0.00..77815.48 rows=416499 width=32)
+                           ->  Parallel Seq Scan on bluesky  (cost=0.00..77822.28 rows=416952 width=32)
 
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q2:
 
- Sort  (cost=266214.69..266214.73 rows=13 width=48)
+ Sort  (cost=266706.27..266706.30 rows=13 width=48)
    Sort Key: (count(*)) DESC
-   ->  GroupAggregate  (cost=0.55..266214.45 rows=13 width=48)
+   ->  GroupAggregate  (cost=0.55..266706.03 rows=13 width=48)
          Group Key: ((data -> 'commit'::text) ->> 'collection'::text)
-         ->  Index Scan using idx_bluesky on bluesky  (cost=0.55..256723.20 rows=949106 width=569)
+         ->  Index Scan using idx_bluesky on bluesky  (cost=0.55..257208.06 rows=949777 width=567)
                Index Cond: (((data ->> 'kind'::text) = 'commit'::text) AND (((data -> 'commit'::text) ->> 'operation'::text) = 'create'::text))
  JIT:
    Functions: 7
@@ -29,15 +29,15 @@ Index usage for query Q2:
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q3:
 
- Finalize GroupAggregate  (cost=121158.46..208388.88 rows=571457 width=72)
+ Finalize GroupAggregate  (cost=120966.31..207712.37 rows=568283 width=72)
    Group Key: (EXTRACT(hour FROM to_timestamp(((((data ->> 'time_us'::text))::bigint / 1000000))::double precision))), (((data -> 'commit'::text) ->> 'collection'::text))
-   ->  Gather Merge  (cost=121158.46..186244.92 rows=476214 width=72)
+   ->  Gather Merge  (cost=120966.31..185691.40 rows=473570 width=72)
          Workers Planned: 2
-         ->  Partial GroupAggregate  (cost=120158.44..130277.98 rows=238107 width=72)
+         ->  Partial GroupAggregate  (cost=119966.29..130029.65 rows=236785 width=72)
                Group Key: (EXTRACT(hour FROM to_timestamp(((((data ->> 'time_us'::text))::bigint / 1000000))::double precision))), (((data -> 'commit'::text) ->> 'collection'::text))
-               ->  Sort  (cost=120158.44..120753.70 rows=238107 width=64)
+               ->  Sort  (cost=119966.29..120558.25 rows=236785 width=64)
                      Sort Key: (EXTRACT(hour FROM to_timestamp(((((data ->> 'time_us'::text))::bigint / 1000000))::double precision))), (((data -> 'commit'::text) ->> 'collection'::text))
-                     ->  Parallel Seq Scan on bluesky  (cost=0.00..89940.99 rows=238107 width=64)
+                     ->  Parallel Seq Scan on bluesky  (cost=0.00..89925.42 rows=236785 width=64)
                            Filter: (((data ->> 'kind'::text) = 'commit'::text) AND (((data -> 'commit'::text) ->> 'operation'::text) = 'create'::text) AND (((data -> 'commit'::text) ->> 'collection'::text) = ANY ('{app.bsky.feed.post,app.bsky.feed.repost,app.bsky.feed.like}'::text[])))
  JIT:
    Functions: 11
@@ -46,20 +46,20 @@ Index usage for query Q3:
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q4:
 
- Limit  (cost=106646.88..106646.88 rows=3 width=40)
-   ->  Sort  (cost=106646.88..106750.72 rows=41539 width=40)
+ Limit  (cost=106818.28..106818.29 rows=3 width=40)
+   ->  Sort  (cost=106818.28..106923.25 rows=41988 width=40)
          Sort Key: (min(('1970-01-01 00:00:00+00'::timestamp with time zone + ('00:00:00.000001'::interval * (((data ->> 'time_us'::text))::bigint)::double precision))))
-         ->  Finalize HashAggregate  (cost=105590.76..106109.99 rows=41539 width=40)
+         ->  Finalize HashAggregate  (cost=105750.74..106275.59 rows=41988 width=40)
                Group Key: ((data ->> 'did'::text))
-               ->  Gather  (cost=96722.25..105228.78 rows=72396 width=40)
+               ->  Gather  (cost=96801.63..105385.47 rows=73054 width=40)
                      Workers Planned: 2
-                     ->  Partial GroupAggregate  (cost=95722.25..96989.18 rows=36198 width=40)
+                     ->  Partial GroupAggregate  (cost=95801.63..97080.07 rows=36527 width=40)
                            Group Key: ((data ->> 'did'::text))
-                           ->  Sort  (cost=95722.25..95812.74 rows=36198 width=569)
+                           ->  Sort  (cost=95801.63..95892.95 rows=36527 width=567)
                                  Sort Key: ((data ->> 'did'::text))
-                                 ->  Parallel Bitmap Heap Scan on bluesky  (cost=7236.21..83699.40 rows=36198 width=569)
+                                 ->  Parallel Bitmap Heap Scan on bluesky  (cost=7294.27..83793.49 rows=36527 width=567)
                                        Recheck Cond: (((data ->> 'kind'::text) = 'commit'::text) AND (((data -> 'commit'::text) ->> 'operation'::text) = 'create'::text) AND (((data -> 'commit'::text) ->> 'collection'::text) = 'app.bsky.feed.post'::text))
-                                       ->  Bitmap Index Scan on idx_bluesky  (cost=0.00..7214.49 rows=86875 width=0)
+                                       ->  Bitmap Index Scan on idx_bluesky  (cost=0.00..7272.35 rows=87664 width=0)
                                              Index Cond: (((data ->> 'kind'::text) = 'commit'::text) AND (((data -> 'commit'::text) ->> 'operation'::text) = 'create'::text) AND (((data -> 'commit'::text) ->> 'collection'::text) = 'app.bsky.feed.post'::text))
  JIT:
    Functions: 12
@@ -68,21 +68,22 @@ Index usage for query Q4:
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q5:
 
- Limit  (cost=107772.87..107772.88 rows=3 width=64)
-   ->  Sort  (cost=107772.87..107876.72 rows=41539 width=64)
+ Limit  (cost=107955.05..107955.06 rows=3 width=64)
+   ->  Sort  (cost=107955.05..108060.02 rows=41988 width=64)
          Sort Key: ((EXTRACT(epoch FROM (max(('1970-01-01 00:00:00+00'::timestamp with time zone + ('00:00:00.000001'::interval * (((data ->> 'time_us'::text))::bigint)::double precision))) - min(('1970-01-01 00:00:00+00'::timestamp with time zone + ('00:00:00.000001'::interval * (((data ->> 'time_us'::text))::bigint)::double precision))))) * '1000'::numeric)) DESC
-         ->  Finalize HashAggregate  (cost=106405.21..107235.99 rows=41539 width=64)
+         ->  Finalize HashAggregate  (cost=106572.60..107412.36 rows=41988 width=64)
                Group Key: ((data ->> 'did'::text))
-               ->  Gather  (cost=96722.25..105862.24 rows=72396 width=48)
+               ->  Gather  (cost=96801.63..106024.70 rows=73054 width=48)
                      Workers Planned: 2
-                     ->  Partial GroupAggregate  (cost=95722.25..97622.64 rows=36198 width=48)
+                     ->  Partial GroupAggregate  (cost=95801.63..97719.30 rows=36527 width=48)
                            Group Key: ((data ->> 'did'::text))
-                           ->  Sort  (cost=95722.25..95812.74 rows=36198 width=569)
+                           ->  Sort  (cost=95801.63..95892.95 rows=36527 width=567)
                                  Sort Key: ((data ->> 'did'::text))
-                                 ->  Parallel Bitmap Heap Scan on bluesky  (cost=7236.21..83699.40 rows=36198 width=569)
+                                 ->  Parallel Bitmap Heap Scan on bluesky  (cost=7294.27..83793.49 rows=36527 width=567)
                                        Recheck Cond: (((data ->> 'kind'::text) = 'commit'::text) AND (((data -> 'commit'::text) ->> 'operation'::text) = 'create'::text) AND (((data -> 'commit'::text) ->> 'collection'::text) = 'app.bsky.feed.post'::text))
-                                       ->  Bitmap Index Scan on idx_bluesky  (cost=0.00..7214.49 rows=86875 width=0)
+                                       ->  Bitmap Index Scan on idx_bluesky  (cost=0.00..7272.35 rows=87664 width=0)
                                              Index Cond: (((data ->> 'kind'::text) = 'commit'::text) AND (((data -> 'commit'::text) ->> 'operation'::text) = 'create'::text) AND (((data -> 'commit'::text) ->> 'collection'::text) = 'app.bsky.feed.post'::text))
  JIT:
    Functions: 12
    Options: Inlining false, Optimization false, Expressions true, Deforming true
+
