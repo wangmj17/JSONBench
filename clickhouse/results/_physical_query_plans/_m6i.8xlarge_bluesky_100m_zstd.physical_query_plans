@@ -13,11 +13,10 @@ ExpressionTransform
             (Aggregating)
             Resize 32 → 32
               AggregatingTransform × 32
-                StrictResize 32 → 32
-                  (Expression)
-                  ExpressionTransform × 32
-                    (ReadFromMergeTree)
-                    MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
+                (Expression)
+                ExpressionTransform × 32
+                  (ReadFromMergeTree)
+                  MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
 ------------------------------------------------------------------------------------------------------------------------
 Physical query plan for query Q2:
 
@@ -33,13 +32,12 @@ ExpressionTransform
             (Aggregating)
             Resize 32 → 32
               AggregatingTransform × 32
-                StrictResize 32 → 32
-                  (Expression)
-                  ExpressionTransform × 32
-                    (Filter)
-                    FilterTransform × 64
-                      (ReadFromMergeTree)
-                      MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
+                (Expression)
+                ExpressionTransform × 32
+                  (Filter)
+                  FilterTransform × 64
+                    (ReadFromMergeTree)
+                    MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
 ------------------------------------------------------------------------------------------------------------------------
 Physical query plan for query Q3:
 
@@ -55,13 +53,12 @@ ExpressionTransform
             (Aggregating)
             Resize 32 → 32
               AggregatingTransform × 32
-                StrictResize 32 → 32
-                  (Expression)
-                  ExpressionTransform × 32
-                    (Filter)
-                    FilterTransform × 96
-                      (ReadFromMergeTree)
-                      MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
+                (Expression)
+                ExpressionTransform × 32
+                  (Filter)
+                  FilterTransform × 96
+                    (ReadFromMergeTree)
+                    MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
 ------------------------------------------------------------------------------------------------------------------------
 Physical query plan for query Q4:
 
@@ -79,13 +76,12 @@ ExpressionTransform
               (Aggregating)
               Resize 32 → 32
                 AggregatingTransform × 32
-                  StrictResize 32 → 32
-                    (Expression)
-                    ExpressionTransform × 32
-                      (Filter)
-                      FilterTransform × 96
-                        (ReadFromMergeTree)
-                        MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
+                  (Expression)
+                  ExpressionTransform × 32
+                    (Filter)
+                    FilterTransform × 96
+                      (ReadFromMergeTree)
+                      MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
 ------------------------------------------------------------------------------------------------------------------------
 Physical query plan for query Q5:
 
@@ -103,10 +99,9 @@ ExpressionTransform
               (Aggregating)
               Resize 32 → 32
                 AggregatingTransform × 32
-                  StrictResize 32 → 32
-                    (Expression)
-                    ExpressionTransform × 32
-                      (Filter)
-                      FilterTransform × 96
-                        (ReadFromMergeTree)
-                        MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
+                  (Expression)
+                  ExpressionTransform × 32
+                    (Filter)
+                    FilterTransform × 96
+                      (ReadFromMergeTree)
+                      MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
