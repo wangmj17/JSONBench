@@ -10,8 +10,8 @@ Expression (Project names)
           Indexes:
             PrimaryKey
               Condition: true
-              Parts: 10/10
-              Granules: 23394/23394
+              Parts: 30/30
+              Granules: 17190/17190
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q2:
 
@@ -24,12 +24,12 @@ Expression (Project names)
             ReadFromMergeTree (bluesky_100m_zstd.bluesky)
             Indexes:
               PrimaryKey
-                Keys:
+                Keys: 
                   data.kind
                   data.commit.operation
                 Condition: and((data.commit.operation in [\'create\', \'create\']), (data.kind in [\'commit\', \'commit\']))
-                Parts: 10/10
-                Granules: 22431/23394
+                Parts: 30/30
+                Granules: 16480/17190
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q3:
 
@@ -42,13 +42,13 @@ Expression (Project names)
             ReadFromMergeTree (bluesky_100m_zstd.bluesky)
             Indexes:
               PrimaryKey
-                Keys:
+                Keys: 
                   data.kind
                   data.commit.operation
                   data.commit.collection
                 Condition: and((data.commit.collection in 3-element set), and((data.commit.operation in [\'create\', \'create\']), (data.kind in [\'commit\', \'commit\'])))
-                Parts: 10/10
-                Granules: 14048/23394
+                Parts: 30/30
+                Granules: 10361/17190
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q4:
 
@@ -62,13 +62,13 @@ Expression (Project names)
               ReadFromMergeTree (bluesky_100m_zstd.bluesky)
               Indexes:
                 PrimaryKey
-                  Keys:
+                  Keys: 
                     data.kind
                     data.commit.operation
                     data.commit.collection
                   Condition: and((data.commit.collection in [\'app.bsky.feed.post\', \'app.bsky.feed.post\']), and((data.commit.operation in [\'create\', \'create\']), (data.kind in [\'commit\', \'commit\'])))
-                  Parts: 10/10
-                  Granules: 2231/23394
+                  Parts: 30/30
+                  Granules: 1685/17190
 ------------------------------------------------------------------------------------------------------------------------
 Index usage for query Q5:
 
@@ -82,10 +82,10 @@ Expression (Project names)
               ReadFromMergeTree (bluesky_100m_zstd.bluesky)
               Indexes:
                 PrimaryKey
-                  Keys:
+                  Keys: 
                     data.kind
                     data.commit.operation
                     data.commit.collection
                   Condition: and((data.commit.collection in [\'app.bsky.feed.post\', \'app.bsky.feed.post\']), and((data.commit.operation in [\'create\', \'create\']), (data.kind in [\'commit\', \'commit\'])))
-                  Parts: 10/10
-                  Granules: 2231/23394
+                  Parts: 30/30
+                  Granules: 1685/17190

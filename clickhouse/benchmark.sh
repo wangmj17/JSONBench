@@ -2,14 +2,13 @@
 
 # Check if the required arguments are provided
 if [[ $# -lt 3 ]]; then
-    echo "Usage: $0 <DB_NAME> <RESULT_FILE_RUNTIMES> <RESULT_FILE_MEMORY_USAGE>"
+    echo "Usage: $0 <DB_NAME> <RESULT_FILE_RUNTIMES>"
     exit 1
 fi
 
 # Arguments
 DB_NAME="$1"
 RESULT_FILE_RUNTIMES="$2"
-RESULT_FILE_MEMORY_USAGE="$3"
 
 # Construct the query log file name using $DB_NAME
 QUERY_LOG_FILE="_query_log_${DB_NAME}.txt"
@@ -44,7 +43,3 @@ MEMORY_RESULTS=$(grep -E '^[0-9]' "$QUERY_LOG_FILE" | awk 'NR % 2 == 0' | awk '{
 # Output the runtime results
 echo "$RUNTIME_RESULTS" > "$RESULT_FILE_RUNTIMES"
 echo "Runtime results written to $RESULT_FILE_RUNTIMES"
-
-# Output the memory usage results
-echo "$MEMORY_RESULTS" > "$RESULT_FILE_MEMORY_USAGE"
-echo "Memory usage results written to $RESULT_FILE_MEMORY_USAGE"

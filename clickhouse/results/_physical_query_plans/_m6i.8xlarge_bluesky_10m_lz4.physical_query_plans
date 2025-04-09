@@ -13,11 +13,10 @@ ExpressionTransform
             (Aggregating)
             Resize 32 → 32
               AggregatingTransform × 32
-                StrictResize 32 → 32
-                  (Expression)
-                  ExpressionTransform × 32
-                    (ReadFromMergeTree)
-                    MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
+                (Expression)
+                ExpressionTransform × 32
+                  (ReadFromMergeTree)
+                  MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
 ------------------------------------------------------------------------------------------------------------------------
 Physical query plan for query Q2:
 
@@ -33,13 +32,12 @@ ExpressionTransform
             (Aggregating)
             Resize 32 → 32
               AggregatingTransform × 32
-                StrictResize 32 → 32
-                  (Expression)
-                  ExpressionTransform × 32
-                    (Filter)
-                    FilterTransform × 64
-                      (ReadFromMergeTree)
-                      MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
+                (Expression)
+                ExpressionTransform × 32
+                  (Filter)
+                  FilterTransform × 64
+                    (ReadFromMergeTree)
+                    MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
 ------------------------------------------------------------------------------------------------------------------------
 Physical query plan for query Q3:
 
@@ -55,13 +53,12 @@ ExpressionTransform
             (Aggregating)
             Resize 32 → 32
               AggregatingTransform × 32
-                StrictResize 32 → 32
-                  (Expression)
-                  ExpressionTransform × 32
-                    (Filter)
-                    FilterTransform × 96
-                      (ReadFromMergeTree)
-                      MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
+                (Expression)
+                ExpressionTransform × 32
+                  (Filter)
+                  FilterTransform × 96
+                    (ReadFromMergeTree)
+                    MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 32 0 → 1
 ------------------------------------------------------------------------------------------------------------------------
 Physical query plan for query Q4:
 
@@ -77,15 +74,14 @@ ExpressionTransform
             (Expression)
             ExpressionTransform × 32
               (Aggregating)
-              Resize 24 → 32
-                AggregatingTransform × 24
-                  StrictResize 24 → 24
-                    (Expression)
-                    ExpressionTransform × 24
-                      (Filter)
-                      FilterTransform × 72
-                        (ReadFromMergeTree)
-                        MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 24 0 → 1
+              Resize 10 → 32
+                AggregatingTransform × 10
+                  (Expression)
+                  ExpressionTransform × 10
+                    (Filter)
+                    FilterTransform × 30
+                      (ReadFromMergeTree)
+                      MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 10 0 → 1
 ------------------------------------------------------------------------------------------------------------------------
 Physical query plan for query Q5:
 
@@ -101,12 +97,11 @@ ExpressionTransform
             (Expression)
             ExpressionTransform × 32
               (Aggregating)
-              Resize 24 → 32
-                AggregatingTransform × 24
-                  StrictResize 24 → 24
-                    (Expression)
-                    ExpressionTransform × 24
-                      (Filter)
-                      FilterTransform × 72
-                        (ReadFromMergeTree)
-                        MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 24 0 → 1
+              Resize 10 → 32
+                AggregatingTransform × 10
+                  (Expression)
+                  ExpressionTransform × 10
+                    (Filter)
+                    FilterTransform × 30
+                      (ReadFromMergeTree)
+                      MergeTreeSelect(pool: ReadPool, algorithm: Thread) × 10 0 → 1

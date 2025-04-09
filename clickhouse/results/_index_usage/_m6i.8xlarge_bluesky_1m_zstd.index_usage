@@ -24,7 +24,7 @@ Expression (Project names)
             ReadFromMergeTree (bluesky_1m_zstd.bluesky)
             Indexes:
               PrimaryKey
-                Keys:
+                Keys: 
                   data.kind
                   data.commit.operation
                 Condition: and((data.commit.operation in [\'create\', \'create\']), (data.kind in [\'commit\', \'commit\']))
@@ -42,7 +42,7 @@ Expression (Project names)
             ReadFromMergeTree (bluesky_1m_zstd.bluesky)
             Indexes:
               PrimaryKey
-                Keys:
+                Keys: 
                   data.kind
                   data.commit.operation
                   data.commit.collection
@@ -62,7 +62,7 @@ Expression (Project names)
               ReadFromMergeTree (bluesky_1m_zstd.bluesky)
               Indexes:
                 PrimaryKey
-                  Keys:
+                  Keys: 
                     data.kind
                     data.commit.operation
                     data.commit.collection
@@ -82,7 +82,7 @@ Expression (Project names)
               ReadFromMergeTree (bluesky_1m_zstd.bluesky)
               Indexes:
                 PrimaryKey
-                  Keys:
+                  Keys: 
                     data.kind
                     data.commit.operation
                     data.commit.collection
