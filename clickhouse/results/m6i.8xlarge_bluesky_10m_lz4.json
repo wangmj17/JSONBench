@@ -1,6 +1,6 @@
 {
   "system": "ClickHouse (lz4)",
-  "version": "25.1.1.2571",
+  "version": "25.4.1.2389",
   "os": "Ubuntu 24.04",
   "date": "2025-01-13",
   "machine": "m6i.8xlarge, 10000gib gp3",
