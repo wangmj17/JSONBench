@@ -1,6 +1,4 @@
 #!/bin/bash
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-
 ./${DORIS_PACKAGE}/be/bin/start_be.sh --daemon
 ./${DORIS_PACKAGE}/fe/bin/start_fe.sh --daemon
 

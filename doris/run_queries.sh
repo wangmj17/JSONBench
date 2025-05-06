@@ -1,20 +1,21 @@
 #!/bin/bash
 
 # Check if the required arguments are provided
-if [[ $# -lt 1 ]]; then
-    echo "Usage: $0 <DB_NAME>"
+if [[ $# -lt 2 ]]; then
+    echo "Usage: $0 <DB_NAME> <QUERIES_FILE>"
     exit 1
 fi
 
 # Arguments
 DB_NAME="$1"
+QUERIES_FILE="$2"
 
 TRIES=3
 
 mysql -P 9030 -h 127.0.0.1 -u root $DB_NAME -e "set global parallel_pipeline_task_num=32;"
 mysql -P 9030 -h 127.0.0.1 -u root $DB_NAME -e "set global enable_parallel_scan=false;"
 
-cat queries.sql | while read -r query; do
+cat $QUERIES_FILE | while read -r query; do
 
     # Clear the Linux file system cache
     echo "Clearing file system cache..."

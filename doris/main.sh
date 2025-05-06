@@ -48,29 +48,38 @@ benchmark() {
     ./create_and_load.sh "bluesky_${size}m_${suffix}" bluesky "ddl_${suffix}.sql" "$DATA_DIRECTORY" "$size" "$SUCCESS_LOG" "$ERROR_LOG"
     ./total_size.sh "bluesky_${size}m_${suffix}" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.total_size"
     ./count.sh "bluesky_${size}m_${suffix}" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.count"
-    ./benchmark.sh "bluesky_${size}m_${suffix}" "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.results_runtime" "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.results_memory_usage"
+    ./benchmark.sh "bluesky_${size}m_${suffix}" "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.results_runtime" "queries_${suffix}.sql"
     ./drop_table.sh "bluesky_${size}m_${suffix}" bluesky
 }
 
 case $CHOICE in
     2)
-        benchmark 10 generic
+        benchmark 10 default
+        benchmark 10 materialized
         ;;
     3)
-        benchmark 100 generic
+        benchmark 100 default
+        benchmark 100 materialized
         ;;
     4)
-        benchmark 1000 generic
+        benchmark 1000 default
+        benchmark 1000 materialized
         ;;
     5)
-        benchmark 1 generic
-        benchmark 10 generic
-        benchmark 100 generic
-        benchmark 1000 generic
+        benchmark 1 materialized
+        benchmark 1 default
+        benchmark 10 materialized
+        benchmark 10 default
+        benchmark 100 materialized
+        benchmark 100 default
+        benchmark 1000 materialized
+        benchmark 1000 default
         ;;
     *)
-        benchmark 1 generic
+        benchmark 1 materialized
+        benchmark 1 default
         ;;
 esac
 
-./uninstall.sh
+./stop.sh
+#./uninstall.sh
