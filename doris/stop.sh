@@ -1,3 +1,4 @@
 #!/bin/bash
-./${DORIS_PACKAGE}/be/bin/stop_be.sh
-./${DORIS_PACKAGE}/fe/bin/stop_fe.sh
+
+${DORIS_FULL_NAME}/be/bin/stop_be.sh
+${DORIS_FULL_NAME}/fe/bin/stop_fe.sh

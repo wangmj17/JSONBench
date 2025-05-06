@@ -1,5 +1,6 @@
 #!/bin/bash
-export DORIS_PACKAGE="apache-doris-3.0.5-bin-x64"
+
+export DORIS_FULL_NAME="apache-doris-3.0.5-bin-x64"
 
 DEFAULT_CHOICE=ask
 DEFAULT_DATA_DIRECTORY=~/data/bluesky
@@ -82,4 +83,4 @@ case $CHOICE in
 esac
 
 ./stop.sh
-#./uninstall.sh
+./uninstall.sh
