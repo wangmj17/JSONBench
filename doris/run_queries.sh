@@ -28,7 +28,7 @@ cat $QUERIES_FILE | while read -r query; do
 
     # Execute the query multiple times
     for i in $(seq 1 $TRIES); do
-        RESP=$(mysql -vvv -h127.1 -P9030 -uroot "$DB_NAME" -e "$query" | perl -nle 'if (/\((?:(\d+) min )?(\d+\.\d+) sec\)/) { $t = ($1 || 0) * 60 + $2; print $t }' ||:)
+        RESP=$(mysql -vvv -h127.1 -P9030 -uroot "$DB_NAME" -e "$query" | perl -nle 'if (/\((?:(\d+) min )?(\d+\.\d+) sec\)/) { $t = ($1 || 0) * 60 + $2; printf "%.2f\n", $t }' ||:)
         echo "Response time: ${RESP} s"
     done;
 done;

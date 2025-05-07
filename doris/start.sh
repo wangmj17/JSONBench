@@ -1,5 +1,9 @@
 #!/bin/bash
 
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+sysctl -w vm.max_map_count=2000000
+ulimit -n 655350
+
 ${DORIS_FULL_NAME}/be/bin/start_be.sh --daemon
 ${DORIS_FULL_NAME}/fe/bin/start_fe.sh --daemon
 
