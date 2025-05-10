@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# If you change something in this file, please change also in doris/benchmark.sh.
+
 # Check if the required arguments are provided
 if [[ $# -lt 3 ]]; then
     echo "Usage: $0 <DB_NAME> <RESULT_FILE_RUNTIMES> <RESULT_FILE_MEMORY_USAGE>"

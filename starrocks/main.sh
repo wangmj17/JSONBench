@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# If you change something in this file, please change also in doris/main.sh.
+
 DEFAULT_CHOICE=ask
 DEFAULT_DATA_DIRECTORY=~/data/bluesky
 
