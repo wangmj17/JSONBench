@@ -58,29 +58,36 @@ benchmark() {
 case $CHOICE in
     2)
         benchmark 10 default
+        benchmark 10 default_with_index
         benchmark 10 materialized
         ;;
     3)
         benchmark 100 default
+        benchmark 100 default_with_index
         benchmark 100 materialized
         ;;
     4)
         benchmark 1000 default
+        benchmark 1000 default_with_index
         benchmark 1000 materialized
         ;;
     5)
-        benchmark 1 materialized
         benchmark 1 default
-        benchmark 10 materialized
+        benchmark 1 default_with_index
+        benchmark 1 materialized
         benchmark 10 default
-        benchmark 100 materialized
+        benchmark 10 default_with_index
+        benchmark 10 materialized
         benchmark 100 default
+        benchmark 100 default_with_index
+        benchmark 100 materialized
+        benchmark 1000 default_with_index
         benchmark 1000 materialized
-        benchmark 1000 default
         ;;
     *)
-        benchmark 1 materialized
         benchmark 1 default
+        benchmark 1 default_with_index
+        benchmark 1 materialized
         ;;
 esac
 
