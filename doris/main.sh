@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# If you change something in this file, please change also in doris/main.sh.
+# If you change something in this file, please change also in starrocks/main.sh.
+
+export DORIS_FULL_NAME="apache-doris-3.0.5-bin-x64"
 
 DEFAULT_CHOICE=ask
 DEFAULT_DATA_DIRECTORY=~/data/bluesky
@@ -35,6 +37,7 @@ if [ "$CHOICE" = "ask" ]; then
 fi;
 
 ./install.sh
+./start.sh
 
 benchmark() {
     local size=$1
@@ -47,8 +50,7 @@ benchmark() {
     ./create_and_load.sh "bluesky_${size}m" bluesky "$DATA_DIRECTORY" "$size" "$SUCCESS_LOG" "$ERROR_LOG"
     ./total_size.sh "bluesky_${size}m" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m.total_size"
     ./count.sh "bluesky_${size}m" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m.count"
-    ./physical_query_plans.sh "bluesky_${size}m" | tee "${OUTPUT_PREFIX}_bluesky_${size}m.physical_query_plans"
-    ./benchmark.sh "bluesky_${size}m" "${OUTPUT_PREFIX}_bluesky_${size}m.results_runtime" "${OUTPUT_PREFIX}_bluesky_${size}m.results_memory_usage"
+    ./benchmark.sh "bluesky_${size}m" "${OUTPUT_PREFIX}_bluesky_${size}m.results_runtime" "queries.sql"
     ./drop_table.sh "bluesky_${size}m" bluesky
 }
 
@@ -73,4 +75,5 @@ case $CHOICE in
         ;;
 esac
 
+./stop.sh
 ./uninstall.sh
