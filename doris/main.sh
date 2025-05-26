@@ -41,46 +41,37 @@ fi;
 
 benchmark() {
     local size=$1
-    local suffix=$2
     # Check DATA_DIRECTORY contains the required number of files to run the benchmark
     file_count=$(find "$DATA_DIRECTORY" -type f | wc -l)
     if (( file_count < size )); then
         echo "Error: Not enough files in '$DATA_DIRECTORY'. Required: $size, Found: $file_count."
         exit 1
     fi
-    ./create_and_load.sh "bluesky_${size}m_${suffix}" bluesky "ddl_${suffix}.sql" "$DATA_DIRECTORY" "$size" "$SUCCESS_LOG" "$ERROR_LOG"
-    ./total_size.sh "bluesky_${size}m_${suffix}" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.total_size"
-    ./count.sh "bluesky_${size}m_${suffix}" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.count"
-    ./benchmark.sh "bluesky_${size}m_${suffix}" "${OUTPUT_PREFIX}_bluesky_${size}m_${suffix}.results_runtime" "queries_${suffix}.sql"
-    ./drop_table.sh "bluesky_${size}m_${suffix}" bluesky
+    ./create_and_load.sh "bluesky_${size}m" bluesky "$DATA_DIRECTORY" "$size" "$SUCCESS_LOG" "$ERROR_LOG"
+    ./total_size.sh "bluesky_${size}m" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m.total_size"
+    ./count.sh "bluesky_${size}m" bluesky | tee "${OUTPUT_PREFIX}_bluesky_${size}m.count"
+    ./benchmark.sh "bluesky_${size}m" "${OUTPUT_PREFIX}_bluesky_${size}m.results_runtime" "queries.sql"
+    ./drop_table.sh "bluesky_${size}m" bluesky
 }
 
 case $CHOICE in
     2)
-        benchmark 10 default
-        benchmark 10 materialized
+        benchmark 10
         ;;
     3)
-        benchmark 100 default
-        benchmark 100 materialized
+        benchmark 100
         ;;
     4)
-        benchmark 1000 default
-        benchmark 1000 materialized
+        benchmark 1000
         ;;
     5)
-        benchmark 1 default
-        benchmark 1 materialized
-        benchmark 10 default
-        benchmark 10 materialized
-        benchmark 100 default
-        benchmark 100 materialized
-        benchmark 1000 default
-        benchmark 1000 materialized
+        benchmark 1
+        benchmark 10
+        benchmark 100
+        benchmark 1000
         ;;
     *)
-        benchmark 1 default
-        benchmark 1 materialized
+        benchmark 1
         ;;
 esac
 
