@@ -414,6 +414,13 @@ const data = [
             <a class="selector" id="selector-metric-quality">Data Quality</a>
         </td>
     </tr>
+    <tr>
+        <th>Retain Structure: </th>
+        <td id="selectors_retain_structure">
+            <a class="selector selector-active" id="selector-retain-structure-yes">Yes</a>
+            <a class="selector" id="selector-retain-structure-no">No</a>
+        </td>
+    </tr>
 </table>
 
 <table class="stick-left comparison">
@@ -457,6 +464,7 @@ let selectors = {
     "scale": 1000_000_000,
     "metric": "hot",
     "queries": [],
+    "retain_structure": {"yes": true, "no": false}
 };
 
 let theme = 'light';
@@ -564,6 +572,27 @@ document.getElementById('selector-metric-hot').addEventListener('click', e => { 
 document.getElementById('selector-metric-size').addEventListener('click', e => { selectors.metric = 'size'; render(); updateHistory(); });
 document.getElementById('selector-metric-quality').addEventListener('click', e => { selectors.metric = 'quality'; render(); updateHistory(); });
 
+document.getElementById('selector-retain-structure-yes').addEventListener('click', e => {
+    selectors.retain_structure.yes = !selectors.retain_structure.yes;
+    if (selectors.retain_structure.yes) {
+        e.target.classList.add('selector-active');
+    } else {
+        e.target.classList.remove('selector-active');
+    }
+    render();
+    updateHistory();
+});
+document.getElementById('selector-retain-structure-no').addEventListener('click', e => {
+    selectors.retain_structure.no = !selectors.retain_structure.no;
+    if (selectors.retain_structure.no) {
+        e.target.classList.add('selector-active');
+    } else {
+        e.target.classList.remove('selector-active');
+    }
+    render();
+    updateHistory();
+});
+
 selectors.queries = queries.map(() => true);
 
 function updateSelectors() {
@@ -573,6 +602,12 @@ function updateSelectors() {
 
     [...document.getElementById('selectors_run').querySelectorAll('a')].map(elem => {
         elem.className = elem.id == 'selector-metric-' + selectors.metric ? 'selector selector-active' : 'selector' });
+
+    // Update retain structure buttons state
+    document.getElementById('selector-retain-structure-yes').className =
+        selectors.retain_structure.yes ? 'selector selector-active' : 'selector';
+    document.getElementById('selector-retain-structure-no').className =
+        selectors.retain_structure.no ? 'selector selector-active' : 'selector';
 
     [...document.querySelectorAll('.query-checkbox')].map((elem, i) => { elem.checked = selectors.queries[i] });
 }
@@ -774,7 +809,11 @@ function render() {
 
     let filtered_data = data.filter(elem =>
         (selectors.system[elem.system] || (selectors.metric == 'size' && elem.fake)) &&
-        selectors.scale == elem.dataset_size);
+        selectors.scale == elem.dataset_size &&
+        (
+            (selectors.retain_structure.yes && elem.retains_structure === "yes") ||
+            (selectors.retain_structure.no && elem.retains_structure === "no")
+        ));
 
     let nothing_selected_elem = document.getElementById('nothing-selected');
     if (filtered_data.length == 0) {
@@ -921,6 +960,10 @@ function updateHistory() {
 window.onpopstate = function(event) {
     if (!event.state) { return; }
     selectors = event.state;
+    // Ensure retain_structure exists in loaded state
+    if (!selectors.retain_structure) {
+        selectors.retain_structure = {"yes": true, "no": false};
+    }
     render();
     updateSelectors();
 };
@@ -928,6 +971,10 @@ window.onpopstate = function(event) {
 if (window.location.hash) {
     try {
         selectors = JSON.parse(atob(window.location.hash.substring(1)));
+        // Ensure retain_structure exists in loaded state
+        if (!selectors.retain_structure) {
+            selectors.retain_structure = {"yes": true, "no": false};
+        }
     } catch {}
 }
 
