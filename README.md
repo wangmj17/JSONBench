@@ -24,7 +24,7 @@ You can easily reproduce every test (although for some systems it may take from 
 
 Best efforts should be taken to understand the details of every tested system for a fair comparison. It is allowed to apply various [indexing methods](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#some-json-paths-can-be-used-for-indexes-and-data-sorting) whenever appropriate.
 
-It is [not allowed](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#no-query-results-cache) to use query results caching or flatten JSON into multiple non-JSON colums at insertion type.
+It is [not allowed](https://clickhouse.com/blog/json-bench-clickhouse-vs-mongodb-elasticsearch-duckdb-postgresql#no-query-results-cache) to use query results caching or flatten JSON into multiple non-JSON colums at insertion time.
 
 Some databases do have a JSON data type but they flatten nested JSON documents at insertion time to a single level (typically using `.` as separator between levels). We consider this a grey zone. On the one hand, this removes the possibility to restore the original documents, on the other hand, flattening may in many practical situations be acceptable. The dashboard allows to filter out databases which do not retain the document structure (i.e. which flatten).
 
