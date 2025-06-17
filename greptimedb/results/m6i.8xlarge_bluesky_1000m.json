@@ -4,7 +4,7 @@
   "os": "Ubuntu 24.04",
   "date": "2025-03-17",
   "machine": "m6i.8xlarge, 10000gib gp3",
-  "retains_structure": "yes",
+  "retains_structure": "no",
   "tags": [
   ],
   "dataset_size": 1000000000,
