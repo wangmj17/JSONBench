@@ -10,18 +10,18 @@ read -p "Enter the number corresponding to your choice: " choice
 case $choice in
     2)
         # Download 10m dataset: files 0001 to 0010
-        wget --timestamping --directory-prefix ~/data/bluesky --input-file <(seq --format "https://clickhouse-public-datasets.s3.amazonaws.com/bluesky/file_%04g.json.gz" 1 10)
+        wget --continue --timestamping --progress=dot:giga --directory-prefix ~/data/bluesky --input-file <(seq --format "https://clickhouse-public-datasets.s3.amazonaws.com/bluesky/file_%04g.json.gz" 1 10)
         ;;
     3)
         # Download 100m dataset: files 0001 to 0100
-        wget --timestamping --directory-prefix ~/data/bluesky --input-file <(seq --format "https://clickhouse-public-datasets.s3.amazonaws.com/bluesky/file_%04g.json.gz" 1 100)
+        wget --continue --timestamping --progress=dot:giga --directory-prefix ~/data/bluesky --input-file <(seq --format "https://clickhouse-public-datasets.s3.amazonaws.com/bluesky/file_%04g.json.gz" 1 100)
         ;;
     4)
         # Download 1000m dataset: files 0001 to 1000
-        wget --timestamping --directory-prefix ~/data/bluesky --input-file <(seq --format "https://clickhouse-public-datasets.s3.amazonaws.com/bluesky/file_%04g.json.gz" 1 1000)
+        wget --continue --timestamping --progress=dot:giga --directory-prefix ~/data/bluesky --input-file <(seq --format "https://clickhouse-public-datasets.s3.amazonaws.com/bluesky/file_%04g.json.gz" 1 1000)
         ;;
     *)
         # Download 1m dataset: single file
-        wget --timestamping --directory-prefix ~/data/bluesky "https://clickhouse-public-datasets.s3.amazonaws.com/bluesky/file_0001.json.gz"
+        wget --continue --timestamping --progress=dot:giga --directory-prefix ~/data/bluesky "https://clickhouse-public-datasets.s3.amazonaws.com/bluesky/file_0001.json.gz"
         ;;
 esac
